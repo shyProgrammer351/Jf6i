@@ -1,0 +1,76 @@
+<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <!--		<s-c-r-i-p-t a-s-y-n-c s-r-c="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7250753558435816" crossorigin="anonymous"></script> --> <!--		<s-c-r-i-p-t type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script> -->		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script> 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script> 		<script type="text/javascript" src="https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/C/C0602.js"></script> 		<script type="text/javascript" src="https://shyprogrammer351.github.io/reading/functions.js"></script> 		<link rel="stylesheet" href="https://shyprogrammer351.github.io/reading/layout.css"> 	</head> 	<body onload='f2();' onkeydown='f4()' oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"></div> 			<div id = "navigationBox"></div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>재귀함수를 이용하여, 정수를 입력받아 0부터 입력값까지의 합계 Σ를 계산하는 문제입니다 이를 해결하는 다음 프로그램을 해석하세요 </pre> 				<pre class='selectable'>숫자를 입력하세요: <b><font color='red'>3</font></b>
+Σ 3 = 3 + 2 + 1 + 0 = 6
+</pre><br><pre class='selectable'>숫자를 입력하세요: <b><font color='red'>5</font></b>
+Σ 5 = 5 + 4 + 3 + 2 + 1 + 0 = 15
+</pre><br><pre class='selectable'>숫자를 입력하세요: <b><font color='red'>0</font></b>
+Σ 0 = 0 = 0
+</pre><br> 	  				<h4>알고리즘</h4> 				<pre style='white-space:normal;'> 프로그램 시작 <br> &nbsp; &nbsp;숫자 n 입력받기 <br> &nbsp; &nbsp;0부터 n까지의 합계 계산하기 <br> &nbsp; &nbsp;합계 출력하기 <br> 프로그램 종료 <br> <br> 숫자 n 입력받는 함수 시작 <br> &nbsp; &nbsp;숫자 n 입력받기 <br> 숫자 n 입력받는 함수 종료 <br> <br> 0부터 n까지의 합계 계산하는 함수 시작 <br> &nbsp; &nbsp;n이 0 이하이면 Σ 연산 종료 <br> &nbsp; &nbsp;Σ n = n + Σ ( n - 1 ) <br> 0부터 n까지의 합계 계산하는 함수 종료 <br></pre> 		 				<br><h4>프로그램 코드 <input id='btn' type='button' value='실행순서 및 메모리상태 확인' onclick='f5();'/></h4>  				<div id = "codeBox"><pre id="code0" class="unselectable codeClass">	<font color="green">// 파일명 : ./Chapter06/Summation.c</font> 
+</pre><pre id="code0" class="unselectable codeClass">	#include &lt;stdio.h&gt;  
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">	<font color="green">//<b> 0부터 n까지의 합계 계산하는 함수 시작 </b></font>
+</pre>
+<pre id="code1" class="unselectable codeClass">1	int <font color='red' title="Σ(sigma)는 Σ n = n + Σ ( n - 1 )로 자기자신인 Σ 함수를 다시 호출하는 재귀함수">sigma</font>( int num ) 
+</pre><pre id="code0" class="unselectable codeClass">	{ 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">//<b> n이 0 이하이면 Σ 연산 종료 </b></font>
+</pre><pre id="code0" class="unselectable codeClass">		<font color='red' title="조건식이 참이면 해당 명령문을 실행하는 선택문">if</font> ( num <= <font color='red' title="Σ 함수가 종료하는 조건의 상수">0</font> )							 
+</pre><pre id="code0" class="unselectable codeClass">		{ 
+</pre><pre id="code0" class="unselectable codeClass">			printf ( "%d = ", num ); 			 
+</pre>
+<pre id="code2" class="unselectable codeClass">2			<font color='red' title="함수 종료시 실행흐름이 함수를 호출했던 곳으로 되돌아가는 명령문">return</font> num;						 
+</pre><pre id="code0" class="unselectable codeClass">		} 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">//<b> Σ n = n + Σ ( n - 1 ) </b></font>
+</pre><pre id="code0" class="unselectable codeClass">		<font color='red' title="모든 조건식이 거짓이면 해당 명령문을 실행하는 선택문">else</font>	 
+</pre><pre id="code0" class="unselectable codeClass">		{ 
+</pre><pre id="code0" class="unselectable codeClass">			printf ( "%d + ", num ); 
+</pre>
+<pre id="code3" class="unselectable codeClass">3			<font color='red' title="함수 종료시 실행흐름이 함수를 호출했던 곳으로 되돌아가는 명령문">return</font> num = num +						 
+</pre>
+<pre id="code4" class="unselectable codeClass">4				     <font color='red' title="Σ(sigma)는 Σ n = n + Σ ( n - 1 )로 자기자신인 Σ 함수를 다시 호출하는 재귀함수">sigma</font>( num - <font color='red' title="Σ 함수가 다음 Σ 함수를 호출할 때 감소값">1</font> );			 
+</pre><pre id="code0" class="unselectable codeClass">		} 
+</pre><pre id="code0" class="unselectable codeClass">	<font color="green">//<b> 0부터 n까지의 합계 계산하는 함수 종료 </b></font>
+</pre><pre id="code0" class="unselectable codeClass">	} 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">	<font color="green">//<b> 숫자 n 입력받는 함수 시작 </b></font>
+</pre>
+<pre id="code5" class="unselectable codeClass">5	int getNum() 
+</pre><pre id="code0" class="unselectable codeClass">	{ 
+</pre><pre id="code0" class="unselectable codeClass">		int num = 0; 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">//<b> 숫자 n 입력받기 </b></font>
+</pre><pre id="code0" class="unselectable codeClass">		printf( "숫자를 입력하세요: "); 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">// 3을 입력한다고 가정</font> 
+</pre><pre id="code0" class="unselectable codeClass">		scanf( "%d", &num ); 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">//<b> 숫자 n 입력받는 함수 종료 </b></font>
+</pre><pre id="code0" class="unselectable codeClass">		return num; 
+</pre>
+<pre id="code6" class="unselectable codeClass">6	} 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">	<font color="green">//<b> 프로그램 시작 </b></font>
+</pre>
+<pre id="code7" class="unselectable codeClass">7	int main()  
+</pre><pre id="code0" class="unselectable codeClass">	{ 
+</pre><pre id="code0" class="unselectable codeClass">		int sum = 0, num = 0; 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">//<b> 숫자 n 입력받기 </b></font>
+</pre>
+<pre id="code8" class="unselectable codeClass">8		num =  
+</pre>
+<pre id="code9" class="unselectable codeClass">9		      getNum(); 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">//<b> 0부터 n까지의 합계 계산하기 </b></font>
+</pre><pre id="code0" class="unselectable codeClass">		printf( "Σ %d = ", num ); 
+</pre>
+<pre id="code10" class="unselectable codeClass">10		sum =  
+</pre>
+<pre id="code11" class="unselectable codeClass">11		      sigma( num ); 
+</pre><pre id="code0" class="unselectable codeClass">		 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">//<b> 합계 출력하기 </b></font>
+</pre>
+<pre id="code12" class="unselectable codeClass">12		printf ( "%d", sum );  
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">//<b>프로그램 종료 </b></font>
+</pre>
+<pre id="code13" class="unselectable codeClass">13		return 0; 
+</pre><pre id="code0" class="unselectable codeClass">	} 
+</pre></div>	 	 				<br><h4>키워드 설명</h4> 				<pre id = "d3" style='white-space:normal;'></pre> 			 				<h4>실행 순서</h4> 				<pre id = "d4" style='white-space:normal; width:800px;'> </pre> 				<pre style='white-space:normal;'> 					※ 실행순서 및 메모리상태는 A키(이전)및 D키(다음)를 눌러도 확인할 수 있습니다  				</pre> 				<br><br> 			</div> 			<div id = "floatingBox"> 				<pre id = "outputBox" class ="outputBox"></pre>  				<div id = "intermediateResult"> 					<img id = "d7"> 					<table style = "border-spacing:0px;margin:0px;table-layout:auto;"> 						<tbody id = "d8"></tbody> 					</table> 				</div> 			</div> 		</div> 	</body> </html> 

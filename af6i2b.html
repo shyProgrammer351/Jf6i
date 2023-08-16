@@ -1,0 +1,48 @@
+<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script type="text/javascript" src="https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/C/C0602.js"></script> 		<script type="text/javascript" src="https://shyprogrammer351.github.io/reading/functions.js"></script> 		<link rel="stylesheet" href="https://shyprogrammer351.github.io/reading/layout.css"> 		<script> 			const d10 = [ [ "sigma" ], [ "if" ], [ "0" ], [ "return","return;" ], [ "else" ], [ "return","return;" ], [ "sigma" ], [ "1" ], 							]; 		</script> 	</head> 	<body onload='f1();' onkeydown='f4()' oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"> 			</div> 			<div id = "navigationBox"> 			</div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>재귀함수를 이용하여, 정수를 입력받아 0부터 입력값까지의 합계 Σ를 계산하는 문제입니다 이를 해결하는 다음 프로그램에 대해 빈칸을 채우세요 </pre> 				<pre class='selectable'>숫자를 입력하세요: <b><font color='red'>3</font></b>
+Σ 3 = 3 + 2 + 1 + 0 = 6
+</pre><br><pre class='selectable'>숫자를 입력하세요: <b><font color='red'>5</font></b>
+Σ 5 = 5 + 4 + 3 + 2 + 1 + 0 = 15
+</pre><br><pre class='selectable'>숫자를 입력하세요: <b><font color='red'>0</font></b>
+Σ 0 = 0 = 0
+</pre><br>  	  				<h4>코드 빈칸 채우기</h4> 				<pre style='white-space:pre;border:1px'>#include &lt;stdio.h&gt;  
+ 
+int <input id='blank0' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(0)'>( int num ) 
+{ 
+	<input id='blank1' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(1)'> ( num <= <input id='blank2' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(2)'> )							 
+	{ 
+		printf ( "%d = ", num ); 			 
+		<input id='blank3' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(3)'> num;						 
+	} 
+	<input id='blank4' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(4)'>	 
+	{ 
+		printf ( "%d + ", num ); 
+		<input id='blank5' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(5)'> num = num +						 
+			     <input id='blank6' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(6)'>( num - <input id='blank7' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(7)'> );			 
+	} 
+} 
+ 
+int getNum() 
+{ 
+	int num = 0; 
+ 
+	printf( "숫자를 입력하세요: "); 
+	scanf( "%d", &num ); 
+ 
+	return num; 
+} 
+ 
+int main()  
+{ 
+	int sum = 0, num = 0; 
+ 
+	num =  
+	      getNum(); 
+ 
+	printf( "Σ %d = ", num ); 
+	sum =  
+	      sigma( num ); 
+	 
+	printf ( "%d", sum );  
+ 
+	return 0; 
+} 	 			</pre> 			</div> 		</div> 	</body> </html> 

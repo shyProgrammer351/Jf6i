@@ -1,0 +1,40 @@
+<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script type="text/javascript" src="https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/C/C0601.js"></script> 		<script type="text/javascript" src="https://shyprogrammer351.github.io/reading/functions.js"></script> 		<link rel="stylesheet" href="https://shyprogrammer351.github.io/reading/layout.css"> 		<script> 			var d10 = "5 7 1 2 6 9 3 4 8 10 11"; 		</script> 	</head> 	<body onload='f1();' onkeydown='f4()' oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"> 			</div> 			<div id = "navigationBox"> 			</div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>2km까지 기본료가 3800원이고 132m 당 100원이 부과된다고 가정할 때, 거리(m)를 입력하면 택시비를 계산하는 문제입니다 실행순서를 클릭하세요 </pre> 				<pre class='selectable'>택시의 이동거리(m)를 입력하세요: <b><font color='red'>2000</font></b>
+2000m 이동시 택시요금은 3800원입니다
+</pre><br>  	 				<h4>프로그램 코드</h4> 				<pre></pre><pre id="code0" class="unselectable codeClass">	#include &lt;stdio.h&gt;
+
+</pre><pre id="code1" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7(1)">1	int getDistance()																			
+</pre><pre id="code0" class="unselectable codeClass">	{
+</pre><pre id="code0" class="unselectable codeClass">		int distance = 0;																		
+</pre><pre id="code0" class="unselectable codeClass">		printf( "택시의 이동거리(m)를 입력하세요: " );
+</pre><pre id="code0" class="unselectable codeClass">		scanf( "%d", &distance ); 		
+
+</pre><pre id="code2" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7(2)">2		return distance;							
+</pre><pre id="code0" class="unselectable codeClass">	}
+
+</pre><pre id="code3" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7(3)">3	int calculateTaxiFare( int distance )									
+</pre><pre id="code0" class="unselectable codeClass">	{
+</pre><pre id="code0" class="unselectable codeClass">		int taxiFare = 0;																		
+</pre><pre id="code0" class="unselectable codeClass">		
+</pre><pre id="code0" class="unselectable codeClass">		distance = ( distance < 2000 ) ? 2000 : distance;		
+
+</pre><pre id="code0" class="unselectable codeClass">		taxiFare = 3800 + ( distance - 2000 + 131 ) / 132 * 100;			
+
+</pre><pre id="code4" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7(4)">4		return taxiFare;							
+</pre><pre id="code0" class="unselectable codeClass">	}
+
+</pre><pre id="code5" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7(5)">5	int main()									
+</pre><pre id="code0" class="unselectable codeClass">	{
+</pre><pre id="code0" class="unselectable codeClass">		int distance = 0, taxiFare = 0;						
+
+</pre><pre id="code6" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7(6)">6		distance = 								
+</pre><pre id="code7" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7(7)">7			   getDistance();		 
+
+</pre><pre id="code8" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7(8)">8		taxiFare = 								
+</pre><pre id="code9" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7(9)">9			   calculateTaxiFare( distance );	 
+
+</pre><pre id="code10" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7(10)">10		printf( "%dm 이동시 택시요금은 %d원입니다 ", distance, taxiFare );
+</pre><pre id="code0" class="unselectable codeClass">		
+</pre><pre id="code11" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7(11)">11		return 0;								
+</pre><pre id="code0" class="unselectable codeClass">	}
+</pre>
+</pre> 			</div> 			<div id = "floatingBox"> 				<b>실행 순서</b> 				<pre id = "d4" style='white-space:normal; word-wrap:break-word; width:150px;'></pre> 			</div> 		</div> 	</body> </html>   
