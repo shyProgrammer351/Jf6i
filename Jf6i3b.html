@@ -1,0 +1,234 @@
+<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script type="text/javascript" src="https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/J0603.js"></script> 		<script type="text/javascript" src="../reading/functions.js"></script> 		<link rel="stylesheet" href="../reading/layout.css"> 		<script> 			const d10 = [ [ "JFrame" ], [ "class" ], [ "JFrame" ], [ "JFrame" ], [ "JFrame" ], [ "class" ], [ "extends" ], [ "JPanel" ], [ "implements" ], [ "ActionListener" ], [ "Timer" ], [ "JLabel" ], [ "JLabel" ], [ "JLabel" ], [ "JButton" ], [ "ImageIcon" ], [ "Timer" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "JLabel" ], [ "JLabel" ], [ "JLabel" ], [ "JLabel" ], [ "JButton" ], [ "JButton" ], [ "ImageIcon" ], [ "addActionListener" ], [ "JButton" ], [ "ImageIcon" ], [ "addActionListener" ], [ "JButton" ], [ "ImageIcon" ], [ "addActionListener" ], [ "JLabel" ], [ "actionPerformed" ], [ "setIcon" ], [ "setIcon" ], [ "setEnabled" ], [ "setEnabled" ], [ "setEnabled" ], [ "start" ], [ "class" ], [ "implements" ], [ "ActionListener" ], [ "actionPerformed" ], [ "stop" ], [ "setIcon" ], [ "setEnabled" ], [ "setEnabled" ], [ "setEnabled" ], [ "class" ], 							]; 		</script> 	</head> 	<body onload='f1();' onkeydown='f4()' oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"> 			</div> 			<div id = "navigationBox"> 			</div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>가위바위보 게임의 GUI 문제입니다 이를 해결하는 다음 프로그램에 대해 빈칸을 채우세요 </pre> 				  	  				<h4>코드 빈칸 채우기</h4> 				<pre style='white-space:pre;border:1px'>import javax.swing.<input id='blank0' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(0)'>; 
+import rockPaperScissors.RockPaperScissorsPanel; 
+ 
+public <input id='blank1' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(1)'> RockPaperScissorsGUI 
+{ 
+	public static void main(String[] args)  
+	{ 
+		RockPaperScissorsPanel panel =  
+		                               new RockPaperScissorsPanel(); 
+ 
+		<input id='blank2' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(2)'> frame = new <input id='blank3' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(3)'>( "가위바위보" ); 
+		frame.getContentPane().add( panel ); 
+		frame.setDefaultCloseOperation( <input id='blank4' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(4)'>.EXIT_ON_CLOSE ); 
+		frame.pack(); 
+		frame.setVisible( true ); 
+	} 
+} 
+ 
+package rockPaperScissors; 
+import java.awt.*; 
+import java.awt.event.*; 
+import javax.swing.*; 
+ 
+public <input id='blank5' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(5)'> RockPaperScissorsPanel <input id='blank6' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(6)'> <input id='blank7' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(7)'> <input id='blank8' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(8)'> <input id='blank9' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(9)'>   
+{ 
+	protected RockPaperScissors game; 
+	private   <input id='blank10' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(10)'> timer; 
+	 
+	protected int[] playerA; 
+	protected int[] playerB; 
+ 
+	protected <input id='blank11' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(11)'> imgPlayerA; 
+	protected <input id='blank12' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(12)'> imgPlayerB; 
+ 
+	protected <input id='blank13' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(13)'> strPlayers; 
+ 
+	protected <input id='blank14' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(14)'>[] button;	 
+	protected <input id='blank15' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(15)'>[][] image; 
+	 
+	protected final int BASE = 0; 
+	protected final int WIN = 1; 
+	protected final int QUESTIONMARK = 3; 
+ 
+	public RockPaperScissorsPanel()  
+	{ 
+		this.game = new RockPaperScissors(); 
+		this.timer = new <input id='blank16' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(16)'>( 1000, new TimerListener() ); 
+		 
+		this.playerA = new int[2]; 
+		this.playerB = new int[2]; 
+		this.playerA[0] = this.playerB[0] = game.SCISSORS; 
+		this.playerA[1] = this.playerB[1] = BASE; 
+		 final String imgPath = "./Common/rockPaperScissors/image/"; 
+		image = new <input id='blank17' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(17)'>[4][2]; 
+		final String pathImgScissors = imgPath + "scissors.gif"; 
+		final String pathImgRock = imgPath + "rock.gif"; 
+		final String pathImgPaper = imgPath + "paper.gif"; 
+		final String pathImgScissorsWin = imgPath + "scissors_win.gif"; 
+		final String pathImgRockWin = imgPath + "rock_win.gif"; 
+		final String pathImgPaperWin = imgPath + "paper_win.gif"; 
+		final String pathImgQuestionmark = imgPath + "questionmark.gif"; 
+		image[QUESTIONMARK][BASE] = new <input id='blank18' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(18)'>( new <input id='blank19' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(19)'>( pathImgQuestionmark ).getImage().getScaledInstance( 200, 200, Image.SCALE_SMOOTH ) ); 
+		image[QUESTIONMARK][WIN] = new <input id='blank20' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(20)'>( new <input id='blank21' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(21)'>( pathImgQuestionmark ).getImage().getScaledInstance( 200, 200, Image.SCALE_SMOOTH ) ); 
+		image[game.SCISSORS][BASE] = new <input id='blank22' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(22)'>( new <input id='blank23' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(23)'>( pathImgScissors ).getImage().getScaledInstance( 200, 200, Image.SCALE_SMOOTH ) ); 
+		image[game.SCISSORS][WIN] = new <input id='blank24' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(24)'>( new <input id='blank25' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(25)'>( pathImgScissorsWin ).getImage().getScaledInstance( 200, 200, Image.SCALE_SMOOTH ) ); 
+		image[game.ROCK][BASE] = new <input id='blank26' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(26)'>( new <input id='blank27' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(27)'>( pathImgRock ).getImage().getScaledInstance( 200, 200, Image.SCALE_SMOOTH ) ); 
+		image[game.ROCK][WIN] = new <input id='blank28' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(28)'>( new <input id='blank29' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(29)'>( pathImgRockWin ).getImage().getScaledInstance( 200, 200, Image.SCALE_SMOOTH ) ); 
+		image[game.PAPER][BASE] = new <input id='blank30' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(30)'>( new <input id='blank31' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(31)'>( pathImgPaper ).getImage().getScaledInstance( 200, 200, Image.SCALE_SMOOTH ) ); 
+		image[game.PAPER][WIN] = new <input id='blank32' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(32)'>( new <input id='blank33' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(33)'>( pathImgPaperWin ).getImage().getScaledInstance( 200, 200, Image.SCALE_SMOOTH ) ); 
+			 
+		this.strPlayers = new <input id='blank34' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(34)'>( "&lt;html&gt;<body>[너]&lt;br&gt;[나]&lt;/body&gt;&lt;/html&gt;", <input id='blank35' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(35)'>.CENTER );		 
+		this.imgPlayerA = new <input id='blank36' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(36)'>( image[QUESTIONMARK][BASE] ); 
+		this.imgPlayerB = new <input id='blank37' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(37)'>( image[QUESTIONMARK][BASE] ); 
+		 
+		this.add( this.imgPlayerB ); 
+		this.add( this.strPlayers ); 
+		this.add( this.imgPlayerA ); 
+ 
+		button = new <input id='blank38' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(38)'>[3]; 
+		button[game.SCISSORS] = new <input id='blank39' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(39)'>( new <input id='blank40' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(40)'>( image[game.SCISSORS][BASE].getImage().getScaledInstance( 30, 30, Image.SCALE_SMOOTH ) ) ); 
+		button[game.SCISSORS].<input id='blank41' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(41)'>( this );  
+ 
+		button[game.ROCK] = new <input id='blank42' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(42)'>( new <input id='blank43' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(43)'>( image[game.ROCK][BASE].getImage().getScaledInstance( 30, 30, Image.SCALE_SMOOTH ) ) ); 
+		button[game.ROCK].<input id='blank44' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(44)'>( this );  
+ 
+		button[game.PAPER] = new <input id='blank45' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(45)'>( new <input id='blank46' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(46)'>( image[game.PAPER][BASE].getImage().getScaledInstance( 30, 30, Image.SCALE_SMOOTH ) ) ); 
+		button[game.PAPER].<input id='blank47' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(47)'>( this );  
+		this.add( new <input id='blank48' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(48)'>("  가위 바위 보를 선택하세요  ") ); 
+		this.add( button[game.SCISSORS] ); 
+		this.add( button[game.ROCK] ); 
+		this.add( button[game.PAPER] ); 
+ 
+		this.setBackground(Color.cyan); 
+		this.setPreferredSize(new Dimension(220, 530));		 
+	} 
+ 
+	protected int selectRockPaperScissors( ActionEvent event ) 
+	{ 
+		if( event.getSource() == button[game.SCISSORS] )  
+			return game.SCISSORS; 
+		else if ( event.getSource() == button[game.ROCK] )  
+			return game.ROCK; 
+		else 
+			return game.PAPER; 
+	} 
+	 
+	protected void setGameResult()  
+	{ 
+		String result =  
+		                game.judge( playerA[0], playerB[0] ); 
+		if ( result.contains( "참여자가 이겼습니다" ) ) 
+		{ 			 
+			playerA[1] = WIN; 
+			playerB[1] = BASE; 
+		}  
+		else if ( result.contains( "상대편이 이겼습니다" ) ) 
+		{ 			 
+			playerA[1] = BASE; 
+			playerB[1] = WIN; 
+		}  
+		else 
+		{ 
+			playerA[1] = BASE; 
+			playerB[1] = BASE;	 
+		} 
+	}  
+		 
+	public void <input id='blank49' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(49)'>( ActionEvent event )   
+	{ 
+		playerA[0] =  
+		             selectRockPaperScissors( event ); 
+		playerB[0] =  
+		             game.selectRockPaperScissors(); 
+ 
+		setGameResult(); 
+		imgPlayerA.<input id='blank50' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(50)'>( image[ playerA[0] ][ playerA[1] ] ); 
+		imgPlayerB.<input id='blank51' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(51)'>( image[ playerB[0] ][ playerB[1] ] );	 
+		 
+		button[0].<input id='blank52' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(52)'>( false ); 
+		button[1].<input id='blank53' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(53)'>( false ); 
+		button[2].<input id='blank54' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(54)'>( false ); 
+		timer.<input id='blank55' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(55)'>();		 
+	} 
+	 
+	private <input id='blank56' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(56)'> TimerListener <input id='blank57' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(57)'> <input id='blank58' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(58)'>  
+	{ 
+		public void <input id='blank59' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(59)'>( ActionEvent event )  
+		{ 
+			timer.<input id='blank60' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(60)'>();		 
+			imgPlayerB.<input id='blank61' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(61)'>( image[QUESTIONMARK][BASE] ); 
+			button[0].<input id='blank62' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(62)'>( true ); 
+			button[1].<input id='blank63' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(63)'>( true ); 
+			button[2].<input id='blank64' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(64)'>( true ); 
+		} 
+	} 
+}	 
+package rockPaperScissors; 
+import java.util.Scanner; 
+ 
+public <input id='blank65' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(65)'> RockPaperScissors 
+{ 
+	public final int SCISSORS = 0; 
+	public final int ROCK = 1; 
+	public final int PAPER = 2; 
+ 
+	public String play( Scanner scan ) 
+	{	 
+		int playerA = selectRockPaperScissors( scan ); 
+		int playerB = selectRockPaperScissors(); 
+		 
+		String result = ""; 
+		result += "참여자는 " + getString( playerA ) +"를 냈습니다.\n"; 
+		result += "상대편은 " + getString( playerB ) +"를 냈습니다.\n"; 
+		result += "판정결과는 " + judge( playerA, playerB ) + "\n"; 
+		return result; 
+	} 
+	 
+	public String getString( int player ) 
+	{ 
+		if ( player == SCISSORS ) 
+			return "가위"; 
+		else if ( player == ROCK ) 
+			return "바위"; 
+		else 
+			return "보";  
+	} 
+	 
+	public int getInteger( String player ) 
+	{ 
+		if ( player.equals( "가위" ) ) 
+			return SCISSORS; 
+		else if ( player.equals( "바위" ) ) 
+			return ROCK; 
+		else 
+			return PAPER;  
+	} 
+	 
+	protected int selectRockPaperScissors( Scanner scan ) 
+	{ 
+		String player; 
+		 
+		do 
+		{ 
+			System.out.print( "가위, 바위, 보 중 하나를 입력하세요 : "); 
+			player = scan.next(); 
+			 
+		} while( !player.equals( "가위" ) && !player.equals( "바위" ) && !player.equals( "보" ) ); 
+			 
+		return getInteger( player ); 
+	} 
+ 
+	protected int selectRockPaperScissors() 
+	{ 
+		return (int)(Math.random()*3);		 
+	} 
+	 
+	protected String judge( int playerA, int playerB ) 
+	{ 
+		if ( playerA == playerB ) 
+		{ 
+			return "상대편과 참여자가 비겼습니다"; 
+		} 
+		else if ( ( ( playerA == SCISSORS ) && ( playerB == PAPER ) ) 
+				|| ( ( playerA == ROCK ) && ( playerB == SCISSORS ) ) 
+				|| ( ( playerA == PAPER ) && ( playerB == ROCK ) ) ) 
+		{ 
+			return "참여자가 이겼습니다"; 
+		} 
+		else 
+		{ 
+			return "상대편이 이겼습니다"; 
+		}	 
+	} 
+} 	 			</pre> 			</div> 		</div> 	</body> </html> 

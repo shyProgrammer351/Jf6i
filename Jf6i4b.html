@@ -1,0 +1,203 @@
+<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script type="text/javascript" src="https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/J0604.js"></script> 		<script type="text/javascript" src="../reading/functions.js"></script> 		<link rel="stylesheet" href="../reading/layout.css"> 		<script> 			const d10 = [ [ "JFrame" ], [ "class" ], [ "JFrame" ], [ "JFrame" ], [ "JFrame" ], [ "class" ], [ "extends" ], [ "JPanel" ], [ "implements" ], [ "ActionListener" ], [ "JButton" ], [ "JButton" ], [ "JButton" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "addActionListener" ], [ "actionPerformed" ], [ "class" ], [ "extends" ], [ "JPanel" ], [ "implements" ], [ "ImageIcon" ], [ "JLabel" ], [ "ImageIcon" ], [ "JLabel" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "JLabel" ], [ "JLabel" ], [ "setIcon" ], [ "setIcon" ], [ "setIcon" ], [ "setIcon" ], [ "setIcon" ], [ "setIcon" ], [ "setIcon" ], [ "setIcon" ], 							]; 		</script> 	</head> 	<body onload='f1();' onkeydown='f4()' oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"> 			</div> 			<div id = "navigationBox"> 			</div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>리모컨으로 제어하는 TV 프로그램의 GUI 문제입니다 이를 해결하는 다음 프로그램에 대해 빈칸을 채우세요 </pre> 				  	  				<h4>코드 빈칸 채우기</h4> 				<pre style='white-space:pre;border:1px'>import java.awt.*; 
+import javax.swing.<input id='blank0' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(0)'>; 
+import remoteControl.RemoteControllerPanel; 
+import remoteControl.TVPanel; 
+ 
+public <input id='blank1' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(1)'> RemoteControlTVGUI 
+{ 
+	public static void main(String[] args)  
+	{ 
+		TVPanel appliance =  
+		                new TVPanel(); 
+		RemoteControllerPanel remoteController =  
+		                        new RemoteControllerPanel( appliance ); 
+ 
+		<input id='blank2' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(2)'> frame = new <input id='blank3' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(3)'>( "TV" ); 
+		frame.setLayout( new BorderLayout() );      
+		frame.add( appliance, BorderLayout.EAST ); 
+		frame.add( remoteController, BorderLayout.WEST ); 
+		frame.setPreferredSize( new Dimension( 600,170 ) ); 
+		frame.setDefaultCloseOperation( <input id='blank4' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(4)'>.EXIT_ON_CLOSE ); 
+		frame.pack(); 
+		frame.setVisible( true ); 
+	} 
+} 
+		 
+package remoteControl; 
+import javax.swing.*; 
+import java.awt.*; 
+import java.awt.event.*; 
+ 
+ 
+ 
+public <input id='blank5' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(5)'> RemoteControllerPanel <input id='blank6' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(6)'> <input id='blank7' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(7)'> <input id='blank8' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(8)'> <input id='blank9' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(9)'>  
+{ 
+	protected RemoteControl appliance; 
+	protected <input id='blank10' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(10)'>[] button;	 
+	public final static int POWER = 0; 
+	public final static int UP = 1; 
+	public final static int DOWN = 2; 
+	public final static int LEFT = 3; 
+	public final static int RIGHT = 4; 
+ 
+	public RemoteControllerPanel( RemoteControl appliance ) 
+	{ 
+		this(); 
+		this.appliance = appliance; 
+	} 
+ 
+	public RemoteControllerPanel()					   
+	{ 
+		this.appliance = null; 
+ 
+		final String imgPath = "./Common/remoteControl/image/"; 
+		final String[] strButton = { "power", "up", "down", "left", "right" }; 
+		button = new <input id='blank11' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(11)'>[strButton.length]; 
+		for ( int i = 0; i < strButton.length; i++ ) 
+		{ 
+			button[i] = new <input id='blank12' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(12)'>( new <input id='blank13' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(13)'>( new <input id='blank14' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(14)'>( imgPath + strButton[i] + ".gif" ).getImage().getScaledInstance( 30, 30, Image.SCALE_SMOOTH ) ) ); 
+			button[i].<input id='blank15' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(15)'>( this );  
+		} 
+ 
+		this.setPreferredSize( new Dimension( 240, 120 ) );		 
+		this.setLayout( new BorderLayout() ); 
+		this.add( button[POWER], BorderLayout.CENTER ); 
+		this.add( button[UP   ], BorderLayout.NORTH ); 
+		this.add( button[DOWN ], BorderLayout.SOUTH ); 
+		this.add( button[LEFT ], BorderLayout.WEST ); 
+		this.add( button[RIGHT], BorderLayout.EAST );    
+	} 					 
+ 
+	@Override 
+	public void <input id='blank16' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(16)'>( ActionEvent event ) 
+	{ 
+		if ( ( event.getSource() == button[POWER] ) && ( appliance != null ) ) 
+			appliance.clickPower(); 
+		else if ( ( event.getSource() == button[UP] ) && ( appliance != null ) ) 
+			appliance.clickUp(); 
+		else if ( ( event.getSource() == button[DOWN] ) && ( appliance != null ) ) 
+			appliance.clickDown(); 
+		else if ( ( event.getSource() == button[LEFT] ) && ( appliance != null ) ) 
+			appliance.clickLeft(); 
+		else if ( ( event.getSource() == button[RIGHT] ) && ( appliance != null ) ) 
+			appliance.clickRight(); 
+	}	 
+} 
+package remoteControl; 
+import java.awt.*; 
+import javax.swing.*; 
+ 
+public <input id='blank17' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(17)'> TVPanel <input id='blank18' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(18)'> <input id='blank19' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(19)'> <input id='blank20' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(20)'> RemoteControl  
+{ 
+	private boolean power; 
+	private int channel; 
+ 
+	private <input id='blank21' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(21)'>[] imgChannel; 
+	private <input id='blank22' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(22)'> lblChannel; 
+	private int volume; 
+	private <input id='blank23' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(23)'>[] imgVolume;		 
+	private <input id='blank24' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(24)'> lblVolume; 
+	 
+	public TVPanel()  
+	{ 
+		final String imgPath = "./Common/remoteControl/image/"; 
+		final String[] channelFile = { "EBS.gif", "SBS.gif", "KBS.gif", "MBC.gif", "blank.gif" };	 
+		imgChannel = new <input id='blank25' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(25)'>[channelFile.length]; 
+		for ( int i = 0; i < channelFile.length; i++ ) 
+		{ 
+			imgChannel[i] = new <input id='blank26' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(26)'>( new <input id='blank27' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(27)'>( imgPath + channelFile[i] ).getImage().getScaledInstance( 250, 120, Image.SCALE_SMOOTH ) ); 
+		} 
+		 
+		final String[] volumeFile = { "volume0.gif", "volume1.gif", "volume2.gif", "volume3.gif" };	 
+		imgVolume = new <input id='blank28' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(28)'>[volumeFile.length]; 
+		for ( int i = 0; i < volumeFile.length; i++ ) 
+		{ 
+			imgVolume[i] = new <input id='blank29' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(29)'>( new <input id='blank30' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(30)'>( imgPath + volumeFile[i] ).getImage().getScaledInstance( 80, 120, Image.SCALE_SMOOTH ) ); 
+		} 
+		power = OFF; 
+		channel = imgChannel.length - 1; 
+		volume = 0;			 
+		lblChannel = new <input id='blank31' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(31)'>( imgChannel[channel] ); 
+		lblVolume =  new <input id='blank32' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(32)'>( imgVolume[volume] ); 
+		add( lblChannel ); 
+		add( lblVolume ); 
+	} 
+	 
+	public String clickPower() 
+	{ 
+		if( power == OFF ) 
+		{ 
+			power = ON; 
+			channel = 0; 
+			volume = 1; 
+			lblChannel.<input id='blank33' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(33)'>( imgChannel[channel] ); 
+			lblVolume.<input id='blank34' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(34)'>( imgVolume[volume] ); 
+			return "전원을 켭니다"; 
+		} 
+		else  
+		{ 
+			power = OFF; 
+			channel = imgChannel.length - 1; 
+			volume = 0; 
+			lblChannel.<input id='blank35' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(35)'>( imgChannel[channel] ); 
+			lblVolume.<input id='blank36' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(36)'>( imgVolume[volume] ); 
+			return "전원을 끕니다"; 
+		} 
+	} 
+	 
+	public String clickUp() 
+	{ 
+		if( power == ON ) 
+		{ 
+			channel = ( channel + 1 ) % ( imgChannel.length - 1 ); 
+			lblChannel.<input id='blank37' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(37)'>( imgChannel[channel] ); 
+		} 
+		 
+		return "현재 채널은 " + ( channel ) + "번입니다"; 
+	} 
+	 
+	public String clickDown() 
+	{ 
+		if( power == ON ) 
+		{ 
+			channel = ( channel + ( imgChannel.length - 2 ) ) % ( imgChannel.length - 1 ); 
+			lblChannel.<input id='blank38' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(38)'>( imgChannel[channel] ); 
+		} 
+		 
+		return "현재 채널은 " + ( channel ) + "번입니다"; 
+	} 
+	 
+	public String clickLeft() 
+	{ 
+		if( power == ON ) 
+		{ 
+			volume = ( volume + ( imgVolume.length - 1 ) ) % imgVolume.length; 
+			lblVolume.<input id='blank39' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(39)'>( imgVolume[volume] ); 
+		} 
+		 
+		return "현재 음량은 " + ( volume ) + "입니다"; 
+	} 
+	 
+	public String clickRight() 
+	{ 
+		if( power == ON ) 
+		{ 
+			volume = ( volume + 1 ) % imgVolume.length; 
+			lblVolume.<input id='blank40' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(40)'>( imgVolume[volume] ); 
+		} 
+		 
+		return "현재 음량은 " + ( volume ) + "입니다"; 
+	} 
+} 
+package remoteControl; 
+ 
+public interface RemoteControl 
+{ 
+	public final boolean ON = true; 
+	public final boolean OFF = false;	 
+	public String clickPower(); 
+	public String clickUp(); 
+	public String clickDown(); 
+	public String clickLeft(); 
+	public String clickRight(); 
+} 	 			</pre> 			</div> 		</div> 	</body> </html> 

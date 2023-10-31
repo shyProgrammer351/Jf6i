@@ -1,0 +1,261 @@
+<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script type="text/javascript" src="https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/J0603.js"></script> 		<script type="text/javascript" src="../reading/functions.js"></script> 		<link rel="stylesheet" href="../reading/layout.css"> 		<script> 			const d10 = [ ["1"], ["2"], ["3"], ["4"], ["7"], 							]; 		</script> 	</head> 	<body onload='f1();' onkeydown='f4()' oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"> 			</div> 			<div id = "navigationBox"> 			</div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>가위바위보 게임의 GUI 문제입니다 이를 해결하는 다음 프로그램의 실행상태를 확인하세요 </pre> 				 	   				<h4>프로그램 코드</h4> 				<pre>		
+	import javax.swing.JFrame;
+	import rockPaperScissors.RockPaperScissorsPanel;
+	
+	public class RockPaperScissorsGUI
+	{
+M1b		public static void main(String[] args) 
+		{
+M11			RockPaperScissorsPanel panel = 
+M12			                               new RockPaperScissorsPanel();
+	
+			JFrame frame = new JFrame( "가위바위보" );
+			frame.getContentPane().add( panel );
+			frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+			frame.pack();
+			frame.setVisible( true );
+M13
+M1e		}
+	}
+	
+	package rockPaperScissors;
+	import java.awt.*;
+	import java.awt.event.*;
+	import javax.swing.*;
+	
+	public class RockPaperScissorsPanel extends JPanel implements ActionListener  
+	{
+		protected RockPaperScissors game;
+		private   Timer timer;
+		
+		protected int[] playerA;
+		protected int[] playerB;
+	
+		protected JLabel imgPlayerA;
+		protected JLabel imgPlayerB;
+	
+		protected JLabel strPlayers;
+	
+		protected JButton[] button;	
+		protected ImageIcon[][] image;
+		
+		protected final int BASE = 0;
+		protected final int WIN = 1;
+		protected final int QUESTIONMARK = 3;
+	
+P1b		public RockPaperScissorsPanel() 
+		{
+			this.game = new RockPaperScissors();
+			this.timer = new Timer( 1000, new TimerListener() );
+			
+			this.playerA = new int[2];
+			this.playerB = new int[2];
+			this.playerA[0] = this.playerB[0] = game.SCISSORS;
+			this.playerA[1] = this.playerB[1] = BASE;
+			 final String imgPath = "./Common/rockPaperScissors/image/";
+			image = new ImageIcon[4][2];
+			final String pathImgScissors = imgPath + "scissors.gif";
+			final String pathImgRock = imgPath + "rock.gif";
+			final String pathImgPaper = imgPath + "paper.gif";
+			final String pathImgScissorsWin = imgPath + "scissors_win.gif";
+			final String pathImgRockWin = imgPath + "rock_win.gif";
+			final String pathImgPaperWin = imgPath + "paper_win.gif";
+			final String pathImgQuestionmark = imgPath + "questionmark.gif";
+			image[QUESTIONMARK][BASE] = new ImageIcon( new ImageIcon( pathImgQuestionmark ).getImage().getScaledInstance( 200, 200, Image.SCALE_SMOOTH ) );
+			image[QUESTIONMARK][WIN] = new ImageIcon( new ImageIcon( pathImgQuestionmark ).getImage().getScaledInstance( 200, 200, Image.SCALE_SMOOTH ) );
+			image[game.SCISSORS][BASE] = new ImageIcon( new ImageIcon( pathImgScissors ).getImage().getScaledInstance( 200, 200, Image.SCALE_SMOOTH ) );
+			image[game.SCISSORS][WIN] = new ImageIcon( new ImageIcon( pathImgScissorsWin ).getImage().getScaledInstance( 200, 200, Image.SCALE_SMOOTH ) );
+			image[game.ROCK][BASE] = new ImageIcon( new ImageIcon( pathImgRock ).getImage().getScaledInstance( 200, 200, Image.SCALE_SMOOTH ) );
+			image[game.ROCK][WIN] = new ImageIcon( new ImageIcon( pathImgRockWin ).getImage().getScaledInstance( 200, 200, Image.SCALE_SMOOTH ) );
+			image[game.PAPER][BASE] = new ImageIcon( new ImageIcon( pathImgPaper ).getImage().getScaledInstance( 200, 200, Image.SCALE_SMOOTH ) );
+P11			image[game.PAPER][WIN] = new ImageIcon( new ImageIcon( pathImgPaperWin ).getImage().getScaledInstance( 200, 200, Image.SCALE_SMOOTH ) );
+				
+			this.strPlayers = new JLabel( "&lt;html&gt;<body>[너]&lt;br&gt;[나]&lt;/body&gt;&lt;/html&gt;", JLabel.CENTER );		
+			this.imgPlayerA = new JLabel( image[QUESTIONMARK][BASE] );
+			this.imgPlayerB = new JLabel( image[QUESTIONMARK][BASE] );
+			
+			this.add( this.imgPlayerB );
+			this.add( this.strPlayers );
+P12			this.add( this.imgPlayerA );
+	
+			button = new JButton[3];
+			button[game.SCISSORS] = new JButton( new ImageIcon( image[game.SCISSORS][BASE].getImage().getScaledInstance( 30, 30, Image.SCALE_SMOOTH ) ) );
+			button[game.SCISSORS].addActionListener( this ); 
+	
+			button[game.ROCK] = new JButton( new ImageIcon( image[game.ROCK][BASE].getImage().getScaledInstance( 30, 30, Image.SCALE_SMOOTH ) ) );
+			button[game.ROCK].addActionListener( this ); 
+	
+			button[game.PAPER] = new JButton( new ImageIcon( image[game.PAPER][BASE].getImage().getScaledInstance( 30, 30, Image.SCALE_SMOOTH ) ) );
+			button[game.PAPER].addActionListener( this ); 
+			this.add( new JLabel("  가위 바위 보를 선택하세요  ") );
+			this.add( button[game.SCISSORS] );
+			this.add( button[game.ROCK] );
+P13			this.add( button[game.PAPER] );
+	
+			this.setBackground(Color.cyan);
+			this.setPreferredSize(new Dimension(220, 530));		
+P1e		}
+	
+P2b		protected int selectRockPaperScissors( ActionEvent event )
+		{
+			if( event.getSource() == button[game.SCISSORS] ) 
+				return game.SCISSORS;
+			else if ( event.getSource() == button[game.ROCK] ) 
+				return game.ROCK;
+			else
+				return game.PAPER;
+P2e		}
+		
+P3b		protected void setGameResult() 
+		{
+P31			String result = 
+P32			                game.judge( playerA[0], playerB[0] );
+			if ( result.contains( "참여자가 이겼습니다" ) )
+			{ 			
+				playerA[1] = WIN;
+				playerB[1] = BASE;
+			} 
+			else if ( result.contains( "상대편이 이겼습니다" ) )
+			{ 			
+				playerA[1] = BASE;
+				playerB[1] = WIN;
+			} 
+			else
+			{
+				playerA[1] = BASE;
+				playerB[1] = BASE;	
+			}
+P3e		} 
+			
+P5b		public void actionPerformed( ActionEvent event )  
+		{
+P51			playerA[0] = 
+P52			             selectRockPaperScissors( event );
+P53			playerB[0] = 
+P54			             game.selectRockPaperScissors();
+	
+P55			setGameResult();
+			imgPlayerA.setIcon( image[ playerA[0] ][ playerA[1] ] );
+P56			imgPlayerB.setIcon( image[ playerB[0] ][ playerB[1] ] );	
+			
+			button[0].setEnabled( false );
+			button[1].setEnabled( false );
+			button[2].setEnabled( false );
+			timer.start();		
+P5e		}
+		
+		private class TimerListener implements ActionListener 
+		{
+P8b			public void actionPerformed( ActionEvent event ) 
+			{
+				timer.stop();		
+				imgPlayerB.setIcon( image[QUESTIONMARK][BASE] );
+				button[0].setEnabled( true );
+				button[1].setEnabled( true );
+				button[2].setEnabled( true );
+P8e			}
+		}
+	}	
+	package rockPaperScissors;
+	import java.util.Scanner;
+	
+	public class RockPaperScissors
+	{
+		public final int SCISSORS = 0;
+		public final int ROCK = 1;
+		public final int PAPER = 2;
+	
+		public String play( Scanner scan )
+		{	
+			int playerA = selectRockPaperScissors( scan );
+			int playerB = selectRockPaperScissors();
+			
+			String result = "";
+			result += "참여자는 " + getString( playerA ) +"를 냈습니다.\n";
+			result += "상대편은 " + getString( playerB ) +"를 냈습니다.\n";
+			result += "판정결과는 " + judge( playerA, playerB ) + "\n";
+			return result;
+		}
+		
+		public String getString( int player )
+		{
+			if ( player == SCISSORS )
+				return "가위";
+			else if ( player == ROCK )
+				return "바위";
+			else
+				return "보"; 
+		}
+		
+		public int getInteger( String player )
+		{
+			if ( player.equals( "가위" ) )
+				return SCISSORS;
+			else if ( player.equals( "바위" ) )
+				return ROCK;
+			else
+				return PAPER; 
+		}
+		
+		protected int selectRockPaperScissors( Scanner scan )
+		{
+			String player;
+			
+			do
+			{
+				System.out.print( "가위, 바위, 보 중 하나를 입력하세요 : ");
+				player = scan.next();
+				
+			} while( !player.equals( "가위" ) && !player.equals( "바위" ) && !player.equals( "보" ) );
+				
+			return getInteger( player );
+		}
+	
+G1		protected int selectRockPaperScissors()
+		{
+			return (int)(Math.random()*3);		
+G2		}
+		
+G3		protected String judge( int playerA, int playerB )
+		{
+			if ( playerA == playerB )
+			{
+				return "상대편과 참여자가 비겼습니다";
+			}
+			else if ( ( ( playerA == SCISSORS ) && ( playerB == PAPER ) )
+					|| ( ( playerA == ROCK ) && ( playerB == SCISSORS ) )
+					|| ( ( playerA == PAPER ) && ( playerB == ROCK ) ) )
+			{
+				return "참여자가 이겼습니다";
+			}
+			else
+			{
+				return "상대편이 이겼습니다";
+			}	
+G4		}
+	}
+	</pre> 				<br>
+<h4>M1b과 M13 사이의 실행순서(8개) 및 실행상태</h4>
+<pre style='margin:0;padding:0;'>M12			                               new RockPaperScissorsPanel();</pre><br>
+<pre style='margin:0;padding:0;'>P1b		public RockPaperScissorsPanel() </pre><br>
+<pre style='margin:0;padding:0;'>P11			image[game.PAPER][WIN] = new ImageIcon( new ImageIcon( pathImgPaperWin ).getImage().getScaledInstance( 200, 200, Image.SCALE_SMOOTH ) );</pre> <br>그림번호 : <input id='blank0' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(0)'> <br> <br>
+<pre style='margin:0;padding:0;'>P12			this.add( this.imgPlayerA );</pre> <br>그림번호 : <input id='blank1' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(1)'> <br> <br>
+<pre style='margin:0;padding:0;'>P13			this.add( button[game.PAPER] );</pre> <br>그림번호 : <input id='blank2' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(2)'> <br> <br>
+<pre style='margin:0;padding:0;'>P1e		}</pre><br>
+<pre style='margin:0;padding:0;'>M11			RockPaperScissorsPanel panel = </pre><br>
+<pre style='margin:0;padding:0;'>M13			// 이벤트 발생시 처리 준비중</pre><br>
+<h4>E001([상대편]보,[참여자]가위 선택) 이후 실행순서(9개) 및 실행상태</h4>
+<pre style='margin:0;padding:0;'>P5b		public void actionPerformed( ActionEvent event )  </pre> <br>그림번호 : <input id='blank3' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(3)'> <br> <br>
+<pre style='margin:0;padding:0;'>P52			             selectRockPaperScissors( event );</pre><br>
+<pre style='margin:0;padding:0;'>P2b		protected int selectRockPaperScissors( ActionEvent event )</pre><br>
+<pre style='margin:0;padding:0;'>P2e		}</pre><br>
+<pre style='margin:0;padding:0;'>P51			playerA[0] = </pre><br>
+<pre style='margin:0;padding:0;'>P54			             game.selectRockPaperScissors();</pre><br>
+<pre style='margin:0;padding:0;'>G1		protected int selectRockPaperScissors()</pre><br>
+<pre style='margin:0;padding:0;'>G2		}</pre><br>
+<pre style='margin:0;padding:0;'>P53			playerB[0] = </pre><br>
+<h4>E002 잠시 대기후 실행순서(2개) 및 실행상태</h4>
+<pre style='margin:0;padding:0;'>P8b			public void actionPerformed( ActionEvent event ) </pre><br>
+<pre style='margin:0;padding:0;'>P8e			}</pre> <br>그림번호 : <input id='blank4' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(4)'> <br> <br>
+<table border='1'><tr><td width='50' align='center'>1</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RPS_GUI_001.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>2</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RPS_GUI_002.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>3</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RPS_GUI_003.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>4</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RPS_GUI_004.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>5</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RPS_GUI_005.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>6</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RPS_GUI_006.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>7</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RPS_GUI_007.jpg' /><br>&nbsp;</td></tr>
+</table> 			</div> 		</div> 	</body> </html> 

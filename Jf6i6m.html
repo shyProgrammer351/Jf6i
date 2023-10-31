@@ -1,0 +1,218 @@
+<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script type="text/javascript" src="https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/J0606.js"></script> 		<script type="text/javascript" src="../reading/functions.js"></script> 		<link rel="stylesheet" href="../reading/layout.css"> 		<script> 			const d10 = [ ["1"], ["2"], ["3"], ["10"], 							]; 		</script> 	</head> 	<body onload='f1();' onkeydown='f4()' oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"> 			</div> 			<div id = "navigationBox"> 			</div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>리모컨으로 제어하는 로봇 청소기 프로그램의 GUI 문제입니다 이를 해결하는 다음 프로그램의 실행상태를 확인하세요 </pre> 				 	   				<h4>프로그램 코드</h4> 				<pre>				
+	import java.awt.*;
+	import javax.swing.JFrame;
+	import remoteControl.RemoteControllerPanel;
+	import remoteControl.RoboticVacuumCleanerPanel;
+	
+	public class RemoteControlRoboticVacuumCleanerGUI
+	{
+M1b		public static void main(String[] args) 
+		{
+M11			RoboticVacuumCleanerPanel appliance = 
+M12			                new RoboticVacuumCleanerPanel();
+M13			RemoteControllerPanel remoteController = 
+M14			                        new RemoteControllerPanel( appliance );
+	
+			JFrame frame = new JFrame( "로봇청소기" );
+			frame.setLayout( new BorderLayout() );     
+			frame.add( appliance, BorderLayout.EAST );
+			frame.add( remoteController, BorderLayout.WEST );
+			frame.setPreferredSize( new Dimension( 600,170 ) );
+			frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+			frame.pack();
+			frame.setVisible( true );
+M15
+M1e		}
+	}
+	
+	package remoteControl;
+	import javax.swing.*;
+	import java.awt.*;
+	import java.awt.event.*;
+	
+	
+	
+	public class RemoteControllerPanel extends JPanel implements ActionListener 
+	{
+		protected RemoteControl appliance;
+		protected JButton[] button;	
+		public final static int POWER = 0;
+		public final static int UP = 1;
+		public final static int DOWN = 2;
+		public final static int LEFT = 3;
+		public final static int RIGHT = 4;
+	
+R1b		public RemoteControllerPanel( RemoteControl appliance )
+		{
+R11			this();
+			this.appliance = appliance;
+R1e		}
+	
+R2b		public RemoteControllerPanel()					  
+		{
+			this.appliance = null;
+	
+			final String imgPath = "./Common/remoteControl/image/";
+			final String[] strButton = { "power", "up", "down", "left", "right" };
+			button = new JButton[strButton.length];
+			for ( int i = 0; i < strButton.length; i++ )
+			{
+				button[i] = new JButton( new ImageIcon( new ImageIcon( imgPath + strButton[i] + ".gif" ).getImage().getScaledInstance( 30, 30, Image.SCALE_SMOOTH ) ) );
+				button[i].addActionListener( this ); 
+			}
+	
+R21			this.setPreferredSize( new Dimension( 240, 120 ) );		
+			this.setLayout( new BorderLayout() );
+			this.add( button[POWER], BorderLayout.CENTER );
+			this.add( button[UP   ], BorderLayout.NORTH );
+			this.add( button[DOWN ], BorderLayout.SOUTH );
+			this.add( button[LEFT ], BorderLayout.WEST );
+			this.add( button[RIGHT], BorderLayout.EAST );   
+R2e		} 					
+	
+		@Override
+R3b		public void actionPerformed( ActionEvent event )
+		{
+			if ( ( event.getSource() == button[POWER] ) && ( appliance != null ) )
+R31				appliance.clickPower();
+			else if ( ( event.getSource() == button[UP] ) && ( appliance != null ) )
+R32				appliance.clickUp();
+			else if ( ( event.getSource() == button[DOWN] ) && ( appliance != null ) )
+R33				appliance.clickDown();
+			else if ( ( event.getSource() == button[LEFT] ) && ( appliance != null ) )
+R34				appliance.clickLeft();
+			else if ( ( event.getSource() == button[RIGHT] ) && ( appliance != null ) )
+R35				appliance.clickRight();
+R3e		}	
+	}
+	package remoteControl;
+	import java.awt.*;
+	import javax.swing.*;
+	
+	public class RoboticVacuumCleanerPanel extends JPanel implements RemoteControl 
+	{
+		private final int WIDTH = 340, HEIGHT = 120;
+		private final int IMAGE_SIZE = 30;
+		private ImageIcon imgRobot;
+		private ImageIcon imageBackground;
+		private int robotX, robotY;
+		private boolean power;
+		private JLabel cleaningArea;
+		
+P1b		public RoboticVacuumCleanerPanel()
+		{
+			power = OFF;
+			robotX = robotY = 0;
+			final String imgPath = "./Common/remoteControl/image/";
+			imgRobot = new ImageIcon( new ImageIcon( imgPath + "robot.gif" ).getImage().getScaledInstance( IMAGE_SIZE, IMAGE_SIZE, Image.SCALE_SMOOTH ) );
+			imageBackground = new ImageIcon( new ImageIcon( imgPath + "blank.gif" ).getImage().getScaledInstance( WIDTH, HEIGHT, Image.SCALE_SMOOTH ) );
+			cleaningArea = new JLabel( imageBackground );
+			add( cleaningArea );
+			setPreferredSize( new Dimension( WIDTH, HEIGHT ) );
+P1e		}
+P2b		public String clickPower()
+		{
+			if( power == OFF )
+			{
+				cleaningArea.setIcon( null );
+				power = ON;
+				return "전원을 켭니다";
+			}
+			else 
+			{
+				cleaningArea.setIcon( imageBackground );
+				power = OFF;
+				return "전원을 끕니다";
+			}
+P2e		}
+		
+P3b		public String clickUp()
+		{
+P31			move( 0, -10, power );	
+			return "직진합니다";
+P3e		}
+		
+P4b		public String clickDown()
+		{
+P41			move( 0, 10, power );	
+			return "후진합니다";
+P4e		}
+		
+P5b		public String clickLeft()
+		{
+P51			move( -10, 0, power );	
+			return "좌회전합니다";
+P5e		}
+		
+P6b		public String clickRight()
+		{
+P61			move( 10, 0, power );	
+			return "우회전합니다";
+P6e		}
+	
+P7b		public void move( int x, int y, boolean power )
+		{
+			if ( power == RemoteControl.OFF )
+				return;
+				
+			robotX += x;
+			robotY += y;
+	
+			if ( robotX <= 0 )
+				robotX = 0;
+			else if ( robotX >= ( WIDTH - IMAGE_SIZE ) )
+				robotX = WIDTH - IMAGE_SIZE;
+	
+			if ( robotY <= 0 )
+				robotY = 0;
+			else if ( robotY >= ( HEIGHT - IMAGE_SIZE ) )
+				robotY = ( HEIGHT - IMAGE_SIZE );
+	   
+P71			repaint();
+P7e		}
+	
+P8b		public void paintComponent( Graphics page )
+		{
+			super.paintComponent( page );
+			imgRobot.paintIcon( this, page, robotX, robotY );
+P8e		}
+	}
+	package remoteControl;
+	
+	public interface RemoteControl
+	{
+		public final boolean ON = true;
+		public final boolean OFF = false;	
+		public String clickPower();
+		public String clickUp();
+		public String clickDown();
+		public String clickLeft();
+		public String clickRight();
+	}
+	</pre> 				<br>
+<h4>M1b M12과 M13 사이의 실행순서(11개) 및 실행상태</h4>
+<pre style='margin:0;padding:0;'>P1b		public RoboticVacuumCleanerPanel()</pre><br>
+<pre style='margin:0;padding:0;'>P1e		}</pre> <br>그림번호 : <input id='blank0' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(0)'> <br> <br>
+<pre style='margin:0;padding:0;'>M11			RoboticVacuumCleanerPanel appliance = </pre><br>
+<pre style='margin:0;padding:0;'>M14			                        new RemoteControllerPanel( appliance );</pre><br>
+<pre style='margin:0;padding:0;'>R1b		public RemoteControllerPanel( RemoteControl appliance )</pre><br>
+<pre style='margin:0;padding:0;'>R11			this();</pre><br>
+<pre style='margin:0;padding:0;'>R2b		public RemoteControllerPanel()					  </pre><br>
+<pre style='margin:0;padding:0;'>R21			this.setPreferredSize( new Dimension( 240, 120 ) );		</pre> <br>그림번호 : <input id='blank1' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(1)'> <br> <br>
+<pre style='margin:0;padding:0;'>R2e		} 					</pre> <br>그림번호 : <input id='blank2' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(2)'> <br> <br>
+<pre style='margin:0;padding:0;'>R1e		}</pre><br>
+<pre style='margin:0;padding:0;'>M13			RemoteControllerPanel remoteController = </pre><br>
+<h4>E003(RIGHT를 선택) 이후 실행순서(11개) 및 실행상태</h4>
+<pre style='margin:0;padding:0;'>R3b		public void actionPerformed( ActionEvent event )</pre><br>
+<pre style='margin:0;padding:0;'>R35				appliance.clickRight();</pre><br>
+<pre style='margin:0;padding:0;'>P6b		public String clickRight()</pre><br>
+<pre style='margin:0;padding:0;'>P61			move( 10, 0, power );	</pre><br>
+<pre style='margin:0;padding:0;'>P7b		public void move( int x, int y, boolean power )</pre><br>
+<pre style='margin:0;padding:0;'>P71			repaint();</pre><br>
+<pre style='margin:0;padding:0;'>P8b		public void paintComponent( Graphics page )</pre><br>
+<pre style='margin:0;padding:0;'>P8e		}</pre> <br>그림번호 : <input id='blank3' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(3)'> <br> <br>
+<pre style='margin:0;padding:0;'>P7e		}</pre><br>
+<pre style='margin:0;padding:0;'>P6e		}</pre><br>
+<pre style='margin:0;padding:0;'>R3e		}	</pre><br>
+<table border='1'><tr><td width='50' align='center'>1</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_0012.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>2</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_TV_0013.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>3</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_TV_0014.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>4</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_001.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>5</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_002.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>6</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_003.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>7</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_004.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>8</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_005.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>9</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_006.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>10</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_007.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>11</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_008.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>12</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_009.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>13</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_010.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>14</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_011.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>15</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_012.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>16</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_013.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>17</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_014.jpg' /><br>&nbsp;</td></tr>
+</table> 			</div> 		</div> 	</body> </html> 

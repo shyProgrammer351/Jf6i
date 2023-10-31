@@ -1,0 +1,73 @@
+<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script type="text/javascript" src="https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/J0601.js"></script> 		<script type="text/javascript" src="../reading/functions.js"></script> 		<link rel="stylesheet" href="../reading/layout.css"> 		<script> 			const d10 = [ ["1"], ["2"], ["4"], ["5"], 							]; 		</script> 	</head> 	<body onload='f1();' onkeydown='f4()' oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"> 			</div> 			<div id = "navigationBox"> 			</div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>채팅 프로그램의 GUI 문제입니다 이를 해결하는 다음 프로그램의 실행상태를 확인하세요 </pre> 				 	   				<h4>프로그램 코드</h4> 				<pre>		
+	import javax.swing.JFrame;
+	import java.awt.Dimension;
+	import chat.ChatPanel;
+	
+	public class ChatGUI
+	{
+M1b		public static void main(String[] args) 
+		{
+M11			ChatPanel panel = 
+M12			                   new ChatPanel();
+	
+			JFrame frame = new JFrame( "채팅" );
+			frame.getContentPane().add( panel );
+			frame.setPreferredSize( new Dimension( 320, 445 ) );	
+			frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+			frame.pack();
+			frame.setVisible( true );
+M13
+M1e		}
+	}
+	
+	package chat;
+	import javax.swing.*;
+	import java.awt.*;
+	import java.awt.event.*;
+	
+	public class ChatPanel extends JPanel implements ActionListener 
+	{
+		protected JTextArea  chatWindow;
+		protected JTextField inputField;
+	
+P1b		public ChatPanel() 
+		{
+			chatWindow = new JTextArea();
+			chatWindow.setBackground( Color.lightGray );
+			chatWindow.setEditable( false ); 		
+P11			chatWindow.setLineWrap( true );
+			JScrollPane scroll = new JScrollPane( chatWindow );
+			scroll.setPreferredSize( new Dimension( 290, 360 ) );	
+P12			add( scroll );
+			inputField = new JTextField();
+			inputField.setPreferredSize( new Dimension( 290, 30 ) );		
+			inputField.addActionListener( this );	
+			inputField.requestFocus(); 
+			add( inputField );
+			
+			setVisible( true );
+P1e		} 
+	
+		@Override
+P2b		public void actionPerformed( ActionEvent e )
+		{
+			String userUtterance = inputField.getText();
+P21			inputField.setText( "" );
+			chatWindow.append( "[사용자] " + userUtterance + "\n" );
+			chatWindow.setCaretPosition( chatWindow.getText().length() );
+P2e		}
+	}
+	</pre> 				<br>
+<h4>M1b과 M13 사이의 실행순서(6개) 및 실행상태</h4>
+<pre style='margin:0;padding:0;'>M12			                   new ChatPanel();</pre><br>
+<pre style='margin:0;padding:0;'>P1b		public ChatPanel() </pre><br>
+<pre style='margin:0;padding:0;'>P11			chatWindow.setLineWrap( true );</pre> <br>그림번호 : <input id='blank0' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(0)'> <br> <br>
+<pre style='margin:0;padding:0;'>P12			add( scroll );</pre><br>
+<pre style='margin:0;padding:0;'>P1e		} </pre> <br>그림번호 : <input id='blank1' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(1)'> <br> <br>
+<pre style='margin:0;padding:0;'>M11			ChatPanel panel = </pre><br>
+<h4>E001('안녕하세요'를 입력) 이후 실행순서(3개) 및 실행상태</h4>
+<pre style='margin:0;padding:0;'>P2b		public void actionPerformed( ActionEvent e )</pre><br>
+<pre style='margin:0;padding:0;'>P21			inputField.setText( "" );</pre> <br>그림번호 : <input id='blank2' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(2)'> <br> <br>
+<pre style='margin:0;padding:0;'>P2e		}</pre> <br>그림번호 : <input id='blank3' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(3)'> <br> <br>
+<table border='1'><tr><td width='50' align='center'>1</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/Chat_GUI_001.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>2</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/Chat_GUI_002.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>3</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/Chat_GUI_003.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>4</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/Chat_GUI_004.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>5</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/Chat_GUI_005.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>6</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/Chat_GUI_006.jpg' /><br>&nbsp;</td></tr>
+</table> 			</div> 		</div> 	</body> </html> 

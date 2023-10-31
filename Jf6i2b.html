@@ -1,0 +1,122 @@
+<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script type="text/javascript" src="https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/J0602.js"></script> 		<script type="text/javascript" src="../reading/functions.js"></script> 		<link rel="stylesheet" href="../reading/layout.css"> 		<script> 			const d10 = [ [ "JFrame" ], [ "class" ], [ "JFrame" ], [ "JFrame" ], [ "JFrame" ], [ "class" ], [ "extends" ], [ "JPanel" ], [ "implements" ], [ "ActionListener" ], [ "JButton" ], [ "Timer" ], [ "JLabel" ], [ "JLabel" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "JLabel" ], [ "JLabel" ], [ "JLabel" ], [ "JLabel" ], [ "JButton" ], [ "JButton" ], [ "addActionListener" ], [ "JButton" ], [ "addActionListener" ], [ "JButton" ], [ "addActionListener" ], [ "JLabel" ], [ "Timer" ], [ "setIcon" ], [ "setIcon" ], [ "actionPerformed" ], [ "start" ], [ "setEnabled" ], [ "setEnabled" ], [ "setEnabled" ], [ "class" ], [ "implements" ], [ "actionPerformed" ], [ "stop" ], [ "setIcon" ], [ "setIcon" ], [ "setIcon" ], [ "setEnabled" ], [ "setEnabled" ], [ "setEnabled" ], 							]; 		</script> 	</head> 	<body onload='f1();' onkeydown='f4()' oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"> 			</div> 			<div id = "navigationBox"> 			</div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>구슬찾기 게임의 GUI 문제입니다 이를 해결하는 다음 프로그램에 대해 빈칸을 채우세요 </pre> 				  	  				<h4>코드 빈칸 채우기</h4> 				<pre style='white-space:pre;border:1px'>import javax.swing.<input id='blank0' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(0)'>; 
+import threeCupGame.ThreeCupGamePanel; 
+ 
+public <input id='blank1' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(1)'> ThreeCupGameGUI 
+{ 
+	public static void main(String[] args)  
+	{ 
+		ThreeCupGamePanel panel =  
+		                          new ThreeCupGamePanel(); 
+ 
+		<input id='blank2' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(2)'> frame = new <input id='blank3' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(3)'>( "구슬찾기" ); 
+		frame.getContentPane().add( panel ); 
+		frame.setDefaultCloseOperation( <input id='blank4' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(4)'>.EXIT_ON_CLOSE ); 
+		frame.pack(); 
+		frame.setVisible( true ); 
+	} 
+} 
+ 
+package threeCupGame; 
+import java.awt.*; 
+import java.awt.event.*; 
+import javax.swing.*; 
+ 
+public <input id='blank5' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(5)'> ThreeCupGamePanel <input id='blank6' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(6)'> <input id='blank7' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(7)'> <input id='blank8' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(8)'> <input id='blank9' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(9)'>	 
+{ 
+	protected int player; 
+	protected int ball; 
+	private <input id='blank10' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(10)'>[] button;	 
+	private <input id='blank11' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(11)'> timer; 
+	protected <input id='blank12' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(12)'> label;	 
+	private <input id='blank13' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(13)'>[] cup;	 
+	private <input id='blank14' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(14)'>[] img;	 
+	private final int BASE = 0; 
+	private final int BALL = 1; 
+	private final int MISS = 2; 
+ 
+	public ThreeCupGamePanel()  
+	{ 
+		img = new <input id='blank15' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(15)'>[3]; 
+		final String imgPath = "./Common/ThreeCupGame/image/"; 
+		final String PathImgCup  = imgPath + "cup.jpg"; 
+		final String PathImgBall = imgPath + "cup_ball.jpg"; 
+		final String PathImgFail = imgPath + "cup_fail.jpg";		 
+		img[ BASE ] = new <input id='blank16' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(16)'>( new <input id='blank17' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(17)'>( PathImgCup  ).getImage().getScaledInstance( 200, 250, Image.SCALE_SMOOTH ) ); 
+		img[ BALL ] = new <input id='blank18' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(18)'>( new <input id='blank19' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(19)'>( PathImgBall ).getImage().getScaledInstance( 200, 250, Image.SCALE_SMOOTH ) ); 
+		img[ MISS ] = new <input id='blank20' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(20)'>( new <input id='blank21' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(21)'>( PathImgFail ).getImage().getScaledInstance( 200, 250, Image.SCALE_SMOOTH ) ); 
+ 
+		cup = new <input id='blank22' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(22)'>[3]; 
+		cup[0] = new <input id='blank23' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(23)'>( img[ BASE ] ); 
+		cup[1] = new <input id='blank24' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(24)'>( img[ BASE ] ); 
+		cup[2] = new <input id='blank25' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(25)'>( img[ BASE ] ); 
+		this.add( cup[0] ); 
+		this.add( cup[1] ); 
+		this.add( cup[2] ); 
+ 
+		button = new <input id='blank26' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(26)'>[3]; 
+		button[0] = new <input id='blank27' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(27)'>( "                          1                           " ); 
+		button[0].<input id='blank28' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(28)'>( this );  
+ 
+		button[1] = new <input id='blank29' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(29)'>( "                          2                           " ); 
+		button[1].<input id='blank30' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(30)'>( this );  
+ 
+		button[2] = new <input id='blank31' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(31)'>( "                          3                           " ); 
+		button[2].<input id='blank32' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(32)'>( this );  
+ 
+		label = new <input id='blank33' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(33)'>( "구슬을 숨긴 컵을 선택하세요" ); 
+ 
+		this.add( button[0] ); 
+		this.add( button[1] ); 
+		this.add( button[2] ); 
+		this.add( label ); 
+ 
+		this.setBackground(Color.cyan); 
+		this.setPreferredSize(new Dimension(630, 320));	 
+ 
+		this.timer = new <input id='blank34' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(34)'>( 1000, new TimerListener() ); 
+	} 
+	 
+	protected int selectCup( ActionEvent event ) 
+	{ 
+		if( event.getSource() == button[0] )  
+			return 0; 
+		else if ( event.getSource() == button[1] )  
+			return 1; 
+		else 
+			return 2; 
+	} 
+	 
+	protected void showGameResult( int player, int ball )  
+	{ 
+		cup[ ball ].<input id='blank35' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(35)'>( img[ BALL ] );  
+		if ( player != ball ) 
+			cup[ player ].<input id='blank36' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(36)'>( img[ MISS ] ); 	 
+	}  
+	 
+	public void <input id='blank37' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(37)'>( ActionEvent event )   
+	{ 
+		this.ball = (int)( Math.random() * 3 ); 
+		this.player =  
+		               this.selectCup( event ); 
+		showGameResult( this.player, this.ball ); 
+		 
+		timer.<input id='blank38' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(38)'>();		 
+		button[0].<input id='blank39' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(39)'>( false ); 
+		button[1].<input id='blank40' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(40)'>( false ); 
+		button[2].<input id='blank41' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(41)'>( false ); 
+	}	 
+	 
+	private <input id='blank42' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(42)'> TimerListener <input id='blank43' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(43)'> ActionListener 
+	{ 
+		public void <input id='blank44' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(44)'>( ActionEvent event )  
+		{ 
+			timer.<input id='blank45' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(45)'>();			 
+			cup[0].<input id='blank46' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(46)'>( img[ BASE ] );  
+			cup[1].<input id='blank47' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(47)'>( img[ BASE ] );  
+			cup[2].<input id='blank48' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(48)'>( img[ BASE ] ); 	 
+			button[0].<input id='blank49' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(49)'>( true ); 
+			button[1].<input id='blank50' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(50)'>( true ); 
+			button[2].<input id='blank51' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(51)'>( true ); 
+		} 
+	} 
+} 	 			</pre> 			</div> 		</div> 	</body> </html> 

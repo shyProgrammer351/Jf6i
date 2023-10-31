@@ -1,0 +1,189 @@
+<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script type="text/javascript" src="https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/J0606.js"></script> 		<script type="text/javascript" src="../reading/functions.js"></script> 		<link rel="stylesheet" href="../reading/layout.css"> 		<script> 			const d10 = [ [ "JFrame" ], [ "class" ], [ "JFrame" ], [ "JFrame" ], [ "JFrame" ], [ "class" ], [ "extends" ], [ "JPanel" ], [ "implements" ], [ "ActionListener" ], [ "JButton" ], [ "JButton" ], [ "JButton" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "addActionListener" ], [ "actionPerformed" ], [ "class" ], [ "extends" ], [ "JPanel" ], [ "implements" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "JLabel" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "ImageIcon" ], [ "JLabel" ], [ "setIcon" ], [ "setIcon" ], 							]; 		</script> 	</head> 	<body onload='f1();' onkeydown='f4()' oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"> 			</div> 			<div id = "navigationBox"> 			</div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>리모컨으로 제어하는 로봇 청소기 프로그램의 GUI 문제입니다 이를 해결하는 다음 프로그램에 대해 빈칸을 채우세요 </pre> 				  	  				<h4>코드 빈칸 채우기</h4> 				<pre style='white-space:pre;border:1px'>import java.awt.*; 
+import javax.swing.<input id='blank0' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(0)'>; 
+import remoteControl.RemoteControllerPanel; 
+import remoteControl.RoboticVacuumCleanerPanel; 
+ 
+public <input id='blank1' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(1)'> RemoteControlRoboticVacuumCleanerGUI 
+{ 
+	public static void main(String[] args)  
+	{ 
+		RoboticVacuumCleanerPanel appliance =  
+		                new RoboticVacuumCleanerPanel(); 
+		RemoteControllerPanel remoteController =  
+		                        new RemoteControllerPanel( appliance ); 
+ 
+		<input id='blank2' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(2)'> frame = new <input id='blank3' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(3)'>( "로봇청소기" ); 
+		frame.setLayout( new BorderLayout() );      
+		frame.add( appliance, BorderLayout.EAST ); 
+		frame.add( remoteController, BorderLayout.WEST ); 
+		frame.setPreferredSize( new Dimension( 600,170 ) ); 
+		frame.setDefaultCloseOperation( <input id='blank4' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(4)'>.EXIT_ON_CLOSE ); 
+		frame.pack(); 
+		frame.setVisible( true ); 
+	} 
+} 
+ 
+package remoteControl; 
+import javax.swing.*; 
+import java.awt.*; 
+import java.awt.event.*; 
+ 
+ 
+ 
+public <input id='blank5' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(5)'> RemoteControllerPanel <input id='blank6' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(6)'> <input id='blank7' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(7)'> <input id='blank8' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(8)'> <input id='blank9' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(9)'>  
+{ 
+	protected RemoteControl appliance; 
+	protected <input id='blank10' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(10)'>[] button;	 
+	public final static int POWER = 0; 
+	public final static int UP = 1; 
+	public final static int DOWN = 2; 
+	public final static int LEFT = 3; 
+	public final static int RIGHT = 4; 
+ 
+	public RemoteControllerPanel( RemoteControl appliance ) 
+	{ 
+		this(); 
+		this.appliance = appliance; 
+	} 
+ 
+	public RemoteControllerPanel()					   
+	{ 
+		this.appliance = null; 
+ 
+		final String imgPath = "./Common/remoteControl/image/"; 
+		final String[] strButton = { "power", "up", "down", "left", "right" }; 
+		button = new <input id='blank11' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(11)'>[strButton.length]; 
+		for ( int i = 0; i < strButton.length; i++ ) 
+		{ 
+			button[i] = new <input id='blank12' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(12)'>( new <input id='blank13' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(13)'>( new <input id='blank14' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(14)'>( imgPath + strButton[i] + ".gif" ).getImage().getScaledInstance( 30, 30, Image.SCALE_SMOOTH ) ) ); 
+			button[i].<input id='blank15' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(15)'>( this );  
+		} 
+ 
+		this.setPreferredSize( new Dimension( 240, 120 ) );		 
+		this.setLayout( new BorderLayout() ); 
+		this.add( button[POWER], BorderLayout.CENTER ); 
+		this.add( button[UP   ], BorderLayout.NORTH ); 
+		this.add( button[DOWN ], BorderLayout.SOUTH ); 
+		this.add( button[LEFT ], BorderLayout.WEST ); 
+		this.add( button[RIGHT], BorderLayout.EAST );    
+	} 					 
+ 
+	@Override 
+	public void <input id='blank16' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(16)'>( ActionEvent event ) 
+	{ 
+		if ( ( event.getSource() == button[POWER] ) && ( appliance != null ) ) 
+			appliance.clickPower(); 
+		else if ( ( event.getSource() == button[UP] ) && ( appliance != null ) ) 
+			appliance.clickUp(); 
+		else if ( ( event.getSource() == button[DOWN] ) && ( appliance != null ) ) 
+			appliance.clickDown(); 
+		else if ( ( event.getSource() == button[LEFT] ) && ( appliance != null ) ) 
+			appliance.clickLeft(); 
+		else if ( ( event.getSource() == button[RIGHT] ) && ( appliance != null ) ) 
+			appliance.clickRight(); 
+	}	 
+} 
+package remoteControl; 
+import java.awt.*; 
+import javax.swing.*; 
+ 
+public <input id='blank17' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(17)'> RoboticVacuumCleanerPanel <input id='blank18' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(18)'> <input id='blank19' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(19)'> <input id='blank20' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(20)'> RemoteControl  
+{ 
+	private final int WIDTH = 340, HEIGHT = 120; 
+	private final int IMAGE_SIZE = 30; 
+	private <input id='blank21' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(21)'> imgRobot; 
+	private <input id='blank22' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(22)'> imageBackground; 
+	private int robotX, robotY; 
+	private boolean power; 
+	private <input id='blank23' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(23)'> cleaningArea; 
+	 
+	public RoboticVacuumCleanerPanel() 
+	{ 
+		power = OFF; 
+		robotX = robotY = 0; 
+		final String imgPath = "./Common/remoteControl/image/"; 
+		imgRobot = new <input id='blank24' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(24)'>( new <input id='blank25' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(25)'>( imgPath + "robot.gif" ).getImage().getScaledInstance( IMAGE_SIZE, IMAGE_SIZE, Image.SCALE_SMOOTH ) ); 
+		imageBackground = new <input id='blank26' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(26)'>( new <input id='blank27' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(27)'>( imgPath + "blank.gif" ).getImage().getScaledInstance( WIDTH, HEIGHT, Image.SCALE_SMOOTH ) ); 
+		cleaningArea = new <input id='blank28' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(28)'>( imageBackground ); 
+		add( cleaningArea ); 
+		setPreferredSize( new Dimension( WIDTH, HEIGHT ) ); 
+	} 
+	public String clickPower() 
+	{ 
+		if( power == OFF ) 
+		{ 
+			cleaningArea.<input id='blank29' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(29)'>( null ); 
+			power = ON; 
+			return "전원을 켭니다"; 
+		} 
+		else  
+		{ 
+			cleaningArea.<input id='blank30' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(30)'>( imageBackground ); 
+			power = OFF; 
+			return "전원을 끕니다"; 
+		} 
+	} 
+	 
+	public String clickUp() 
+	{ 
+		move( 0, -10, power );	 
+		return "직진합니다"; 
+	} 
+	 
+	public String clickDown() 
+	{ 
+		move( 0, 10, power );	 
+		return "후진합니다"; 
+	} 
+	 
+	public String clickLeft() 
+	{ 
+		move( -10, 0, power );	 
+		return "좌회전합니다"; 
+	} 
+	 
+	public String clickRight() 
+	{ 
+		move( 10, 0, power );	 
+		return "우회전합니다"; 
+	} 
+ 
+	public void move( int x, int y, boolean power ) 
+	{ 
+		if ( power == RemoteControl.OFF ) 
+			return; 
+			 
+		robotX += x; 
+		robotY += y; 
+ 
+		if ( robotX <= 0 ) 
+			robotX = 0; 
+		else if ( robotX >= ( WIDTH - IMAGE_SIZE ) ) 
+			robotX = WIDTH - IMAGE_SIZE; 
+ 
+		if ( robotY <= 0 ) 
+			robotY = 0; 
+		else if ( robotY >= ( HEIGHT - IMAGE_SIZE ) ) 
+			robotY = ( HEIGHT - IMAGE_SIZE ); 
+    
+		repaint(); 
+	} 
+ 
+	public void paintComponent( Graphics page ) 
+	{ 
+		super.paintComponent( page ); 
+		imgRobot.paintIcon( this, page, robotX, robotY ); 
+	} 
+} 
+package remoteControl; 
+ 
+public interface RemoteControl 
+{ 
+	public final boolean ON = true; 
+	public final boolean OFF = false;	 
+	public String clickPower(); 
+	public String clickUp(); 
+	public String clickDown(); 
+	public String clickLeft(); 
+	public String clickRight(); 
+} 	 			</pre> 			</div> 		</div> 	</body> </html> 

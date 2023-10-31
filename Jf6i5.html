@@ -1,0 +1,350 @@
+<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script type="text/javascript" src="https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/J0605.js"></script> 		<script type="text/javascript" src="../reading/functions.js"></script> 		<link rel="stylesheet" href="../reading/layout.css"> 	</head> 	<body onload='f2();' onkeydown='f4()' oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"></div> 			<div id = "navigationBox"></div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>리모컨으로 제어하는 에어컨 프로그램의 GUI 문제입니다 이를 해결하는 다음 프로그램을 해석하세요 </pre> 				 	  				<h4>알고리즘</h4> 				<pre style='white-space:normal;'> 리모컨 GUI 초기화 <br> &nbsp; &nbsp;전원, 상, 하, 좌, 우 버튼의 이미지 및 리스너 초기화 <br> <br> 리모컨 버튼을 클릭시 가전제품 상태 업데이트 <br> &nbsp; &nbsp;에어컨 리모컨에서 전원 버튼을 누르면 전원 상태 변경 <br> &nbsp; &nbsp;에어컨 리모컨에서 상(△) 버튼을 누르면 희망 온도 증가 <br> &nbsp; &nbsp;에어컨 리모컨에서 하(▽) 버튼을 누르면 희망 온도 감소 <br> &nbsp; &nbsp;에어컨 리모컨에서 좌(◁) 버튼을 누르면 바람 세기 감소 <br> &nbsp; &nbsp;에어컨 리모컨에서 우(▷) 버튼을 누르면 바람 세기 증가 <br> <br> 에어컨 GUI 화면 초기화 <br> &nbsp; &nbsp;전원, 희망온도, 풍량 상태 초기화 <br></pre> 		 				<br><h4>프로그램 코드 <input id='btn' type='button' value='실행순서 및 메모리상태 확인' onclick='f5();'/></h4>  				<div id = "codeBox">
+<pre id="codeE001" class="unselectable codeClass">E001		<font color="green">// POWER를 선택</font> 
+</pre>
+<pre id="codeE002" class="unselectable codeClass">E002		<font color="green">// UP을 선택</font> 
+</pre>
+<pre id="codeE003" class="unselectable codeClass">E003		<font color="green">// DOWN을 선택</font> 
+</pre>
+<pre id="codeE004" class="unselectable codeClass">E004		<font color="green">// LEFT를 선택</font> 
+</pre>
+<pre id="codeE005" class="unselectable codeClass">E005		<font color="green">// RIGHT를 선택</font> 
+</pre>
+<pre id="codeE006" class="unselectable codeClass">E006		<font color="green">// POWER를 선택</font> 
+</pre>
+<pre id="codeE007" class="unselectable codeClass">E007		<font color="green">// 프로그램 닫기(우측상단 X) 선택</font>   
+</pre><pre id="code0" class="unselectable codeClass">			 
+</pre><pre id="code0" class="unselectable codeClass">	<font color="green">// 파일명 : ./Chapter06/RemoteControlAirConditionerGUI.java</font> 
+</pre><pre id="code0" class="unselectable codeClass">	import java.awt.*; 
+</pre><pre id="code0" class="unselectable codeClass">	import javax.swing.<font color='red' title="틀에 해당하는 최상위 컨테이너 클래스로 운영체제마다 다른 틀 모양 제공">JFrame</font>; 
+</pre><pre id="code0" class="unselectable codeClass">	import remoteControl.RemoteControllerPanel; 
+</pre><pre id="code0" class="unselectable codeClass">	import remoteControl.AirConditionerPanel; 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">	<font color="green">/************** </font>
+</pre><pre id="code0" class="unselectable codeClass">	 <font color="green">* 리모컨으로 제어하는 에어컨 프로그램의 GUI 버전</font> 
+</pre><pre id="code0" class="unselectable codeClass">	 <font color="green">* @author So Young Park</font> 
+</pre><pre id="code0" class="unselectable codeClass">	 <font color="green">* @version 0.8</font> 
+</pre><pre id="code0" class="unselectable codeClass">	 <font color="green">*/</font>	 
+</pre><pre id="code0" class="unselectable codeClass">	public <font color='red' title="객체의 구조를 선언한 설계도">class</font> RemoteControlAirConditionerGUI 
+</pre><pre id="code0" class="unselectable codeClass">	{ 
+</pre>
+<pre id="codeM1b" class="unselectable codeClass">M1b		public static void main(String[] args)  
+</pre><pre id="code0" class="unselectable codeClass">		{ 
+</pre>
+<pre id="codeM11" class="unselectable codeClass">M11			AirConditionerPanel appliance =  
+</pre>
+<pre id="codeM12" class="unselectable codeClass">M12			                            new AirConditionerPanel(); 
+</pre>
+<pre id="codeM13" class="unselectable codeClass">M13			RemoteControllerPanel remoteController =  
+</pre>
+<pre id="codeM14" class="unselectable codeClass">M14			                        new RemoteControllerPanel( appliance ); 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">			<font color='red' title="틀에 해당하는 최상위 컨테이너 클래스로 운영체제마다 다른 틀 모양 제공">JFrame</font> frame = new <font color='red' title="틀에 해당하는 최상위 컨테이너 클래스로 운영체제마다 다른 틀 모양 제공">JFrame</font>( "에어컨" ); 
+</pre><pre id="code0" class="unselectable codeClass">			frame.setLayout( new BorderLayout() );      
+</pre><pre id="code0" class="unselectable codeClass">			frame.add( appliance, BorderLayout.EAST ); 
+</pre><pre id="code0" class="unselectable codeClass">			frame.add( remoteController, BorderLayout.WEST ); 
+</pre><pre id="code0" class="unselectable codeClass">			frame.setPreferredSize( new Dimension( 600,170 ) ); 
+</pre><pre id="code0" class="unselectable codeClass">			frame.setDefaultCloseOperation( <font color='red' title="틀에 해당하는 최상위 컨테이너 클래스로 운영체제마다 다른 틀 모양 제공">JFrame</font>.EXIT_ON_CLOSE ); 
+</pre><pre id="code0" class="unselectable codeClass">			frame.pack(); 
+</pre><pre id="code0" class="unselectable codeClass">			frame.setVisible( true ); 
+</pre>
+<pre id="codeM15" class="unselectable codeClass">M15			<font color="green">// 이벤트 발생시 처리 준비중</font> 
+</pre>
+<pre id="codeM1e" class="unselectable codeClass">M1e		} 
+</pre><pre id="code0" class="unselectable codeClass">	} 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">	<font color="green">// 파일명 : ./Common/remoteControl/RemoteControllerPanel.java</font> 
+</pre><pre id="code0" class="unselectable codeClass">	package remoteControl; 
+</pre><pre id="code0" class="unselectable codeClass">	import javax.swing.*; 
+</pre><pre id="code0" class="unselectable codeClass">	import java.awt.*; 
+</pre><pre id="code0" class="unselectable codeClass">	import java.awt.event.*; 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">	<font color="green">/** </font>
+</pre><pre id="code0" class="unselectable codeClass">	 <font color="green">* 리모컨 GUI 클래스</font> 
+</pre><pre id="code0" class="unselectable codeClass">	 <font color="green">* @author So Young Park</font> 
+</pre><pre id="code0" class="unselectable codeClass">	 <font color="green">* @version 0.8</font> 
+</pre><pre id="code0" class="unselectable codeClass">	 <font color="green">*/</font> 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">	public <font color='red' title="객체의 구조를 선언한 설계도">class</font> RemoteControllerPanel <font color='red' title="클래스를 상속 받음">extends</font> <font color='red' title="판에 해당하는 컨테이너 클래스로 버튼이나 체그박스 등 다른 요소를 포함 가능">JPanel</font> <font color='red' title="인터페이스를 상속 받아 모든 메서드를 구현">implements</font> <font color='red' title="버튼 클릭이나 타이머 활성화 등의 이벤트 발생시 actionPerformed 메서드를 호출하는 리스너">ActionListener</font>  
+</pre><pre id="code0" class="unselectable codeClass">	{ 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">/** </font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* 가전제품 : TV, 에어콘, 로봇청소기</font>  
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">*/</font> 
+</pre><pre id="code0" class="unselectable codeClass">		protected RemoteControl appliance; 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">/** </font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* 리모컨 버튼 : 전원 및 상하좌우 버튼</font>  
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">*/</font> 
+</pre><pre id="code0" class="unselectable codeClass">		protected <font color='red' title="클릭할 수 있는 버튼 클래스">JButton</font>[] button;	 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">/** </font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* 전원 버튼</font> 
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">*/</font> 
+</pre><pre id="code0" class="unselectable codeClass">		public final static int POWER = 0; 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">/** </font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* 상(△) 버튼</font> 
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">*/</font> 
+</pre><pre id="code0" class="unselectable codeClass">		public final static int UP = 1; 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">/** </font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* 하(▽) 버튼</font> 
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">*/</font> 
+</pre><pre id="code0" class="unselectable codeClass">		public final static int DOWN = 2; 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">/** </font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* 좌(◁) 버튼</font> 
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">*/</font> 
+</pre><pre id="code0" class="unselectable codeClass">		public final static int LEFT = 3; 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">/** </font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* 우(▷) 버튼</font> 
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">*/</font> 
+</pre><pre id="code0" class="unselectable codeClass">		public final static int RIGHT = 4; 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">/** </font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* 가전제품을 제어하는 리모컨 GUI 초기화</font> 
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* @param appliance 가전제품 : TV, 에어콘, 로봇청소기</font>  
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">*/</font> 
+</pre>
+<pre id="codeR1b" class="unselectable codeClass">R1b		public RemoteControllerPanel( RemoteControl appliance ) 
+</pre><pre id="code0" class="unselectable codeClass">		{ 
+</pre>
+<pre id="codeR11" class="unselectable codeClass">R11			this(); 
+</pre><pre id="code0" class="unselectable codeClass">			this.appliance = appliance; 
+</pre>
+<pre id="codeR1e" class="unselectable codeClass">R1e		} 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">/** </font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* <b> 리모컨 GUI 초기화 </b></font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">*/</font> 
+</pre>
+<pre id="codeR2b" class="unselectable codeClass">R2b		public RemoteControllerPanel()					   
+</pre><pre id="code0" class="unselectable codeClass">		{ 
+</pre><pre id="code0" class="unselectable codeClass">			this.appliance = null; 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">			<font color="green">//<b> 전원, 상, 하, 좌, 우 버튼의 이미지 및 리스너 초기화 </b></font>
+</pre><pre id="code0" class="unselectable codeClass">			final String imgPath = "./Common/remoteControl/image/"; 
+</pre><pre id="code0" class="unselectable codeClass">			final String[] strButton = { "power", "up", "down", "left", "right" }; 
+</pre><pre id="code0" class="unselectable codeClass">			button = new <font color='red' title="클릭할 수 있는 버튼 클래스">JButton</font>[strButton.length]; 
+</pre><pre id="code0" class="unselectable codeClass">			for ( int i = 0; i < strButton.length; i++ ) 
+</pre><pre id="code0" class="unselectable codeClass">			{ 
+</pre><pre id="code0" class="unselectable codeClass">				button[i] = new <font color='red' title="클릭할 수 있는 버튼 클래스">JButton</font>( new <font color='red' title="이미지 아이콘 컴포넌트 클래스">ImageIcon</font>( new <font color='red' title="이미지 아이콘 컴포넌트 클래스">ImageIcon</font>( imgPath + strButton[i] + ".gif" ).getImage().getScaledInstance( 30, 30, Image.SCALE_SMOOTH ) ) ); 
+</pre><pre id="code0" class="unselectable codeClass">				button[i].<font color='red' title="버튼 등의 컴퍼넌트에 리스너를 추가">addActionListener</font>( this );  
+</pre><pre id="code0" class="unselectable codeClass">			} 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre>
+<pre id="codeR21" class="unselectable codeClass">R21			this.setPreferredSize( new Dimension( 240, 120 ) );		 
+</pre><pre id="code0" class="unselectable codeClass">			this.setLayout( new BorderLayout() ); 
+</pre><pre id="code0" class="unselectable codeClass">			this.add( button[POWER], BorderLayout.CENTER ); 
+</pre><pre id="code0" class="unselectable codeClass">			this.add( button[UP   ], BorderLayout.NORTH ); 
+</pre><pre id="code0" class="unselectable codeClass">			this.add( button[DOWN ], BorderLayout.SOUTH ); 
+</pre><pre id="code0" class="unselectable codeClass">			this.add( button[LEFT ], BorderLayout.WEST ); 
+</pre><pre id="code0" class="unselectable codeClass">			this.add( button[RIGHT], BorderLayout.EAST );    
+</pre>
+<pre id="codeR2e" class="unselectable codeClass">R2e		} 					 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">/** </font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* <b> 리모컨 버튼을 클릭시 가전제품 상태 업데이트	</b></font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* @param ActionEvent e : 이벤트</font> 
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* @return 없음</font> 
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">*/</font> 
+</pre><pre id="code0" class="unselectable codeClass">		@Override 
+</pre>
+<pre id="codeR3b" class="unselectable codeClass">R3b		public void <font color='red' title="버튼 클릭이나 타이머 활성화 등의 이벤트 발생시 호출되는 메서드">actionPerformed</font>( ActionEvent event ) 
+</pre><pre id="code0" class="unselectable codeClass">		{ 
+</pre><pre id="code0" class="unselectable codeClass">			if ( ( event.getSource() == button[POWER] ) && ( appliance != null ) ) 
+</pre>
+<pre id="codeR31" class="unselectable codeClass">R31				appliance.clickPower(); 
+</pre><pre id="code0" class="unselectable codeClass">			else if ( ( event.getSource() == button[UP] ) && ( appliance != null ) ) 
+</pre>
+<pre id="codeR32" class="unselectable codeClass">R32				appliance.clickUp(); 
+</pre><pre id="code0" class="unselectable codeClass">			else if ( ( event.getSource() == button[DOWN] ) && ( appliance != null ) ) 
+</pre>
+<pre id="codeR33" class="unselectable codeClass">R33				appliance.clickDown(); 
+</pre><pre id="code0" class="unselectable codeClass">			else if ( ( event.getSource() == button[LEFT] ) && ( appliance != null ) ) 
+</pre>
+<pre id="codeR34" class="unselectable codeClass">R34				appliance.clickLeft(); 
+</pre><pre id="code0" class="unselectable codeClass">			else if ( ( event.getSource() == button[RIGHT] ) && ( appliance != null ) ) 
+</pre>
+<pre id="codeR35" class="unselectable codeClass">R35				appliance.clickRight(); 
+</pre>
+<pre id="codeR3e" class="unselectable codeClass">R3e		}	 
+</pre><pre id="code0" class="unselectable codeClass">	} 
+</pre><pre id="code0" class="unselectable codeClass"> 
+</pre><pre id="code0" class="unselectable codeClass">	<font color="green">// 파일명 : ./Common/remoteControl/AirConditionerPanel.java</font> 
+</pre><pre id="code0" class="unselectable codeClass">	package remoteControl; 
+</pre><pre id="code0" class="unselectable codeClass">	import java.awt.*; 
+</pre><pre id="code0" class="unselectable codeClass">	import javax.swing.*; 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">	<font color="green">/** </font>
+</pre><pre id="code0" class="unselectable codeClass">	 <font color="green">* 에어컨 클래스는 에어컨 리모컨을 모델링(리모컨 기능을 포함하므로 부모클래스 RemoteControl을 상속)</font> 
+</pre><pre id="code0" class="unselectable codeClass">	 <font color="green">* @author 박소영</font> 
+</pre><pre id="code0" class="unselectable codeClass">	 <font color="green">*</font> 
+</pre><pre id="code0" class="unselectable codeClass">	 <font color="green">*/</font> 
+</pre><pre id="code0" class="unselectable codeClass">	public <font color='red' title="객체의 구조를 선언한 설계도">class</font> AirConditionerPanel <font color='red' title="클래스를 상속 받음">extends</font> <font color='red' title="판에 해당하는 컨테이너 클래스로 버튼이나 체그박스 등 다른 요소를 포함 가능">JPanel</font> <font color='red' title="인터페이스를 상속 받아 모든 메서드를 구현">implements</font> RemoteControl  
+</pre><pre id="code0" class="unselectable codeClass">	{ 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">/**  </font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* 에어컨 전원</font> 
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">*/</font>	 
+</pre><pre id="code0" class="unselectable codeClass">		private boolean power; 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">/**  </font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* 냉방 온도</font>  
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">*/</font>	 
+</pre><pre id="code0" class="unselectable codeClass">		private int temperature; 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">/**  </font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* 바람 세기</font> 
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">*/</font>	 
+</pre><pre id="code0" class="unselectable codeClass">		private int windStrength; 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">/**  </font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* 바람 세기를 문자열로 표현</font> 
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">*/</font>	 
+</pre><pre id="code0" class="unselectable codeClass">		private final String strWindStrength[] = { "미풍", "약풍", "강풍" }; 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">/**  </font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* 선택 결과를 텍스트 레이블로 표현</font>   
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">*/</font>	 
+</pre><pre id="code0" class="unselectable codeClass">		private <font color='red' title="텍스트나 이미지 아이콘을 포함할 수 있는 컴포넌트 클래스">JLabel</font> label; 
+</pre><pre id="code0" class="unselectable codeClass">		 
+</pre><pre id="code0" class="unselectable codeClass">		 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">/** </font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* <b> 에어컨 GUI 화면 초기화 </b></font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">*/</font> 
+</pre>
+<pre id="codeP1b" class="unselectable codeClass">P1b		public AirConditionerPanel() 
+</pre><pre id="code0" class="unselectable codeClass">		{ 
+</pre><pre id="code0" class="unselectable codeClass">			<font color="green">//<b> 전원, 희망온도, 풍량 상태 초기화 </b></font>
+</pre><pre id="code0" class="unselectable codeClass">			power = OFF; 
+</pre><pre id="code0" class="unselectable codeClass">			temperature = 18; 
+</pre><pre id="code0" class="unselectable codeClass">			windStrength = 1; 
+</pre><pre id="code0" class="unselectable codeClass">				 
+</pre><pre id="code0" class="unselectable codeClass">			label = new <font color='red' title="텍스트나 이미지 아이콘을 포함할 수 있는 컴포넌트 클래스">JLabel</font>( "" ); 
+</pre><pre id="code0" class="unselectable codeClass">			label.setPreferredSize( new Dimension( 290, 120 ) );		 
+</pre><pre id="code0" class="unselectable codeClass">			label.setFont( new Font( "Serif", Font.BOLD, 40 ) ); 
+</pre><pre id="code0" class="unselectable codeClass">			label.setForeground( Color.BLUE ); 
+</pre><pre id="code0" class="unselectable codeClass">			label.setText( "&lt;html&gt;전원을 켜세요&lt;/html&gt;" ); 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">			add( label ); 
+</pre>
+<pre id="codeP1e" class="unselectable codeClass">P1e		} 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">/** </font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* <b> 에어컨 리모컨에서 전원 버튼을 누르면 전원 상태 변경 </b></font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">*/</font> 
+</pre>
+<pre id="codeP2b" class="unselectable codeClass">P2b		public String clickPower() 
+</pre><pre id="code0" class="unselectable codeClass">		{ 
+</pre><pre id="code0" class="unselectable codeClass">			if( power == OFF ) 
+</pre><pre id="code0" class="unselectable codeClass">			{ 
+</pre><pre id="code0" class="unselectable codeClass">				power = ON; 
+</pre><pre id="code0" class="unselectable codeClass">				label.setText( "&lt;html&gt; 희망온도: " + temperature + "도 &lt;br&gt; 바람세기: " + strWindStrength[ windStrength ] +" &lt;/html&gt;" ); 
+</pre><pre id="code0" class="unselectable codeClass">				return "전원을 켭니다"; 
+</pre><pre id="code0" class="unselectable codeClass">			} 
+</pre><pre id="code0" class="unselectable codeClass">			else  
+</pre><pre id="code0" class="unselectable codeClass">			{ 
+</pre><pre id="code0" class="unselectable codeClass">				power = OFF; 
+</pre><pre id="code0" class="unselectable codeClass">				label.setText( "&lt;html&gt;전원을 켜세요&lt;/html&gt;" ); 
+</pre><pre id="code0" class="unselectable codeClass">				return "전원을 끕니다"; 
+</pre><pre id="code0" class="unselectable codeClass">			} 
+</pre>
+<pre id="codeP2e" class="unselectable codeClass">P2e		} 
+</pre><pre id="code0" class="unselectable codeClass">		 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">/** </font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* <b> 에어컨 리모컨에서 상(△) 버튼을 누르면 희망 온도 증가 </b></font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">*/</font> 
+</pre>
+<pre id="codeP3b" class="unselectable codeClass">P3b		public String clickUp() 
+</pre><pre id="code0" class="unselectable codeClass">		{ 
+</pre><pre id="code0" class="unselectable codeClass">			if( power == ON ) 
+</pre><pre id="code0" class="unselectable codeClass">			{ 
+</pre><pre id="code0" class="unselectable codeClass">				++temperature; 
+</pre><pre id="code0" class="unselectable codeClass">				label.setText( "&lt;html&gt; 희망온도: " + temperature + "도 &lt;br&gt; 바람세기: " + strWindStrength[ windStrength ] +" &lt;/html&gt;" ); 
+</pre><pre id="code0" class="unselectable codeClass">			} 
+</pre><pre id="code0" class="unselectable codeClass">			return "현재 온도는 " + temperature + "도입니다"; 
+</pre>
+<pre id="codeP3e" class="unselectable codeClass">P3e		} 
+</pre><pre id="code0" class="unselectable codeClass">		 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">/** </font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* <b> 에어컨 리모컨에서 하(▽) 버튼을 누르면 희망 온도 감소  </b></font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">*/</font> 
+</pre>
+<pre id="codeP4b" class="unselectable codeClass">P4b		public String clickDown() 
+</pre><pre id="code0" class="unselectable codeClass">		{ 
+</pre><pre id="code0" class="unselectable codeClass">			if( power == ON ) 
+</pre><pre id="code0" class="unselectable codeClass">			{ 
+</pre><pre id="code0" class="unselectable codeClass">				--temperature; 
+</pre><pre id="code0" class="unselectable codeClass">				label.setText( "&lt;html&gt; 희망온도: " + temperature + "도 &lt;br&gt; 바람세기: " + strWindStrength[ windStrength ] +" &lt;/html&gt;" ); 
+</pre><pre id="code0" class="unselectable codeClass">			} 
+</pre><pre id="code0" class="unselectable codeClass">			return "현재 온도는 " + temperature + "도입니다"; 
+</pre>
+<pre id="codeP4e" class="unselectable codeClass">P4e		} 
+</pre><pre id="code0" class="unselectable codeClass">		 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">/** </font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* <b> 에어컨 리모컨에서 좌(◁) 버튼을 누르면 바람 세기 감소 </b></font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">*/</font> 
+</pre>
+<pre id="codeP5b" class="unselectable codeClass">P5b		public String clickLeft() 
+</pre><pre id="code0" class="unselectable codeClass">		{ 
+</pre><pre id="code0" class="unselectable codeClass">			if( power == ON ) 
+</pre><pre id="code0" class="unselectable codeClass">			{ 
+</pre><pre id="code0" class="unselectable codeClass">				windStrength = ( windStrength + (strWindStrength.length - 1 ) ) % strWindStrength.length; 
+</pre><pre id="code0" class="unselectable codeClass">				label.setText( "&lt;html&gt; 희망온도: " + temperature + "도 &lt;br&gt; 바람세기: " + strWindStrength[ windStrength ] +" &lt;/html&gt;" ); 
+</pre><pre id="code0" class="unselectable codeClass">			} 
+</pre><pre id="code0" class="unselectable codeClass">			return "현재 풍량은 " + windStrength + "입니다"; 
+</pre>
+<pre id="codeP5e" class="unselectable codeClass">P5e		} 
+</pre><pre id="code0" class="unselectable codeClass">		 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">/** </font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* <b> 에어컨 리모컨에서 우(▷) 버튼을 누르면 바람 세기 증가 </b></font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">*/</font> 
+</pre>
+<pre id="codeP6b" class="unselectable codeClass">P6b		public String clickRight() 
+</pre><pre id="code0" class="unselectable codeClass">		{ 
+</pre><pre id="code0" class="unselectable codeClass">			if( power == ON ) 
+</pre><pre id="code0" class="unselectable codeClass">			{ 
+</pre><pre id="code0" class="unselectable codeClass">				windStrength = ( windStrength + 1 ) % strWindStrength.length; 
+</pre><pre id="code0" class="unselectable codeClass">				label.setText( "&lt;html&gt; 희망온도: " + temperature + "도 &lt;br&gt; 바람세기: " + strWindStrength[ windStrength ] +" &lt;/html&gt;" ); 
+</pre><pre id="code0" class="unselectable codeClass">			} 
+</pre><pre id="code0" class="unselectable codeClass">			return "현재 풍량은 " + windStrength + "입니다"; 
+</pre>
+<pre id="codeP6e" class="unselectable codeClass">P6e		} 
+</pre><pre id="code0" class="unselectable codeClass">	} 
+</pre><pre id="code0" class="unselectable codeClass"> 
+</pre><pre id="code0" class="unselectable codeClass">	<font color="green">// 파일명 : ./Common/remoteControl/RemoteControl.java</font> 
+</pre><pre id="code0" class="unselectable codeClass">	package remoteControl; 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">	<font color="green">/** </font>
+</pre><pre id="code0" class="unselectable codeClass">	 <font color="green">* 전원, 상, 하, 좌, 우 버튼이 있는 리모컨</font>  
+</pre><pre id="code0" class="unselectable codeClass">	 <font color="green">* @author So Young Park</font> 
+</pre><pre id="code0" class="unselectable codeClass">	 <font color="green">* @version 0.8</font> 
+</pre><pre id="code0" class="unselectable codeClass">	 <font color="green">*/</font>	 
+</pre><pre id="code0" class="unselectable codeClass">	public interface RemoteControl 
+</pre><pre id="code0" class="unselectable codeClass">	{ 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">/** </font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* 전원 버튼 켜짐(ON) 상태 관련 상수</font> 
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">*/</font> 
+</pre><pre id="code0" class="unselectable codeClass">		public final boolean ON = true; 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">/** </font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* 전원 버튼 꺼짐(OFF) 상태 관련 상수</font> 
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">*/</font> 
+</pre><pre id="code0" class="unselectable codeClass">		public final boolean OFF = false;	 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">/** </font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* 리모컨에서 전원버튼 눌렀을 때 작동</font> 
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* @return 리모컨 조정 후 가전제품 상태</font>   
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">*/</font> 
+</pre><pre id="code0" class="unselectable codeClass">		public String clickPower(); 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">/** </font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* 리모컨에서 상(△) 버튼을 눌렀을 때 작동</font> 
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* @return 리모컨 조정 후 가전제품 상태</font>   
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">*/</font> 
+</pre><pre id="code0" class="unselectable codeClass">		public String clickUp(); 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">/** </font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* 리모컨에서 하(▽) 버튼을 눌렀을 때 작동</font> 
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* @return 리모컨 조정 후 가전제품 상태</font>   
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">*/</font> 
+</pre><pre id="code0" class="unselectable codeClass">		public String clickDown(); 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">/** </font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* 리모컨에서 좌(◁) 버튼을 눌렀을 때 작동</font> 
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* @return 리모컨 조정 후 가전제품 상태</font>   
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">*/</font> 
+</pre><pre id="code0" class="unselectable codeClass">		public String clickLeft(); 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">/** </font>
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* 리모컨에서 우(▷) 버튼을 눌렀을 때 작동</font> 
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">* @return 리모컨 조정 후 가전제품 상태</font>   
+</pre><pre id="code0" class="unselectable codeClass">		 <font color="green">*/</font> 
+</pre><pre id="code0" class="unselectable codeClass">		public String clickRight(); 
+</pre><pre id="code0" class="unselectable codeClass">	} 
+</pre></div>	 	 				<br><h4>키워드 설명</h4> 				<pre id = "d3" style='white-space:normal;'></pre> 			 				<h4>실행 순서</h4> 				<pre id = "d4" style='white-space:normal; width:800px;'> </pre> 				<pre style='white-space:normal;'> 					※ 실행순서 및 메모리상태는 A키(이전)및 D키(다음)를 눌러도 확인할 수 있습니다  				</pre> 				<br><br> 			</div> 			<div id = "floatingBox"> 				<pre id = "outputBox" class ="outputBox"></pre>  				<div id = "intermediateResult"> 					<img id = "d7"> 					<table style = "border-spacing:0px;margin:0px;table-layout:auto;"> 						<tbody id = "d8"></tbody> 					</table> 				</div> 			</div> 		</div> 	</body> </html> 
