@@ -1,12 +1,12 @@
-<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script type="text/javascript" src="https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/J0602.js"></script> 		<script type="text/javascript" src="../reading/functions.js"></script> 		<link rel="stylesheet" href="../reading/layout.css"> 		<script> 			const d10 = [ ["1"], ["2"], ["3"], ["5"], ["6"], ["8"], ["9"], 							]; 		</script> 	</head> 	<body onload='f1();' onkeydown='f4()' oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"> 			</div> 			<div id = "navigationBox"> 			</div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>구슬찾기 게임의 GUI 문제입니다 이를 해결하는 다음 프로그램의 실행상태를 확인하세요 </pre> 				 	   				<h4>프로그램 코드</h4> 				<pre>	import javax.swing.JFrame;
+<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7250753558435816" crossorigin="anonymous"></script> 		<link rel="stylesheet" href="../layout.css"> 		<script type="text/javascript" src="../functions.js"></script> 		<script> 			const d10 = [ ["1"], ["2"], ["3"], ["5"], ["6"], ["8"], ["7"], 							]; 		</script> 	</head> 	<body oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"> JAVA 프로그래밍 </div> 			<div id = "navigationBox"><ol><li><a href='../Jf1i/Jf1i1.html'>입출력/선택문</a></li><li><a href='../Jf2i/Jf2i1.html'>반복문/배열/예외</a></li><li><a href='../Jf3i/Jf3i1.html'>클래스와 객체/패키지</a></li><li><a href='../Jf4i/Jf4i1.html'>상속 및 다형성</a></li><li><a href='../Jf5i/Jf5i1.html'>GUI 기초</a></li><li><a href='../Jf6i/Jf6i1.html'>GUI 응용</a></li><ul><li><a href='../Jf6i/Jf6i1.html'>채팅</a></li><li><a href='../Jf6i/Jf6i2.html'>구슬찾기</a></li><ul><li><a href='Jf6i2.html'>코드읽기</a></li><li><a href='Jf6i2a.html'>알고리즘</a></li><li><a href='Jf6i2k.html'>키워드</a></li><li><a href='Jf6i2b.html'>빈칸채우기</a></li><li><a href='Jf6i2s.html'>실행순서</a></li><li><a href='Jf6i2m.html'>실행상태</a></li><li><a href='./../../github_sourceCode/Chapter06/ThreeCupGameGUI.java' target='_blank'>소스코드</a></li></ul><li><a href='../Jf6i/Jf6i3.html'>가위바위보</a></li><li><a href='../Jf6i/Jf6i4.html'>리모컨-TV</a></li><li><a href='../Jf6i/Jf6i5.html'>리모컨-에어컨</a></li><li><a href='../Jf6i/Jf6i6.html'>리모컨-로봇청소기</a></li></ul><li><a href='../Jf7i/Jf7i1.html'>제네릭/컬렉션/파일</a></li><li><a href='../Jf8i/Jf8i1.html'>스레드/네트워크(1:1)</a></li><li><a href='../Jf9i/Jf9i1.html'>네트워크(1:n)</a></li></ol></div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>구슬찾기 게임의 GUI 문제입니다 이를 해결하는 다음 프로그램의 실행상태를 확인하세요 </pre> 				 	   				<h4>프로그램 코드</h4> 				<pre>	import javax.swing.JFrame;
 	import threeCupGame.ThreeCupGamePanel;
 	
 	public class ThreeCupGameGUI
 	{
-M1b		public static void main(String[] args) 
+<a href='javascript:history.back();' name='M1b'>M1b</a>		public static void main(String[] args) 
 		{
-M11			ThreeCupGamePanel panel = 
-M12			                          new ThreeCupGamePanel();
+<a href='javascript:history.back();' name='M11'>M11</a>			ThreeCupGamePanel panel = 
+<a href='javascript:history.back();' name='M12'>M12</a>			                          new ThreeCupGamePanel();
 	
 			JFrame frame = new JFrame( "구슬찾기" );
 			frame.getContentPane().add( panel );
@@ -14,7 +14,7 @@ M12			                          new ThreeCupGamePanel();
 			frame.pack();
 			frame.setVisible( true );
 M13
-M1e		}
+<a href='javascript:history.back();' name='M1e'>M1e</a>		}
 	}
 	
 	package threeCupGame;
@@ -35,7 +35,7 @@ M1e		}
 		private final int BALL = 1;
 		private final int MISS = 2;
 	
-P1b		public ThreeCupGamePanel() 
+<a href='javascript:history.back();' name='P1b'>P1b</a>		public ThreeCupGamePanel() 
 		{
 			img = new ImageIcon[3];
 			final String imgPath = "./Common/ThreeCupGame/image/";
@@ -44,7 +44,7 @@ P1b		public ThreeCupGamePanel()
 			final String PathImgFail = imgPath + "cup_fail.jpg";		
 			img[ BASE ] = new ImageIcon( new ImageIcon( PathImgCup  ).getImage().getScaledInstance( 200, 250, Image.SCALE_SMOOTH ) );
 			img[ BALL ] = new ImageIcon( new ImageIcon( PathImgBall ).getImage().getScaledInstance( 200, 250, Image.SCALE_SMOOTH ) );
-P11			img[ MISS ] = new ImageIcon( new ImageIcon( PathImgFail ).getImage().getScaledInstance( 200, 250, Image.SCALE_SMOOTH ) );
+<a href='javascript:history.back();' name='P11'>P11</a>			img[ MISS ] = new ImageIcon( new ImageIcon( PathImgFail ).getImage().getScaledInstance( 200, 250, Image.SCALE_SMOOTH ) );
 	
 			cup = new JLabel[3];
 			cup[0] = new JLabel( img[ BASE ] );
@@ -52,7 +52,7 @@ P11			img[ MISS ] = new ImageIcon( new ImageIcon( PathImgFail ).getImage().getSc
 			cup[2] = new JLabel( img[ BASE ] );
 			this.add( cup[0] );
 			this.add( cup[1] );
-P12			this.add( cup[2] );
+<a href='javascript:history.back();' name='P12'>P12</a>			this.add( cup[2] );
 	
 			button = new JButton[3];
 			button[0] = new JButton( "                          1                           " );
@@ -69,15 +69,15 @@ P12			this.add( cup[2] );
 			this.add( button[0] );
 			this.add( button[1] );
 			this.add( button[2] );
-P13			this.add( label );
+<a href='javascript:history.back();' name='P13'>P13</a>			this.add( label );
 	
 			this.setBackground(Color.cyan);
 			this.setPreferredSize(new Dimension(630, 320));	
 	
 			this.timer = new Timer( 1000, new TimerListener() );
-P1e		}
+<a href='javascript:history.back();' name='P1e'>P1e</a>		}
 		
-P2b		protected int selectCup( ActionEvent event )
+<a href='javascript:history.back();' name='P2b'>P2b</a>		protected int selectCup( ActionEvent event )
 		{
 			if( event.getSource() == button[0] ) 
 				return 0;
@@ -85,64 +85,79 @@ P2b		protected int selectCup( ActionEvent event )
 				return 1;
 			else
 				return 2;
-P2e		}
+<a href='javascript:history.back();' name='P2e'>P2e</a>		}
 		
-P3b		protected void showGameResult( int player, int ball ) 
+<a href='javascript:history.back();' name='P3b'>P3b</a>		protected void showGameResult( int player, int ball ) 
 		{
 			cup[ ball ].setIcon( img[ BALL ] ); 
 			if ( player != ball )
 				cup[ player ].setIcon( img[ MISS ] ); 	
-P3e		} 
+<a href='javascript:history.back();' name='P3e'>P3e</a>		} 
 		
-P4b		public void actionPerformed( ActionEvent event )  
+		public int getRandomCup()
 		{
-			this.ball = (int)( Math.random() * 3 );
-P41			this.player = 
-P42			               this.selectCup( event );
-P43			showGameResult( this.player, this.ball );
-			
-			timer.start();		
+			return (int)( Math.random() * 3 );
+		}
+		
+		public void disableSelection()
+		{
 			button[0].setEnabled( false );
 			button[1].setEnabled( false );
 			button[2].setEnabled( false );
-P4e		}	
+		}
+	
+		public void enableSelection()
+		{
+			cup[0].setIcon( img[ BASE ] ); 
+			cup[1].setIcon( img[ BASE ] ); 
+			cup[2].setIcon( img[ BASE ] ); 	
+			button[0].setEnabled( true );
+			button[1].setEnabled( true );
+			button[2].setEnabled( true );
+		}
+		
+<a href='javascript:history.back();' name='P4b'>P4b</a>		public void actionPerformed( ActionEvent event )  
+		{
+			this.ball = getRandomCup();
+<a href='javascript:history.back();' name='P41'>P41</a>			this.player = 
+<a href='javascript:history.back();' name='P42'>P42</a>			               this.selectCup( event );
+<a href='javascript:history.back();' name='P43'>P43</a>			showGameResult( this.player, this.ball );
+			
+			timer.start();		
+			disableSelection();
+<a href='javascript:history.back();' name='P4e'>P4e</a>		}	
 		
 		private class TimerListener implements ActionListener
 		{
-P7b			public void actionPerformed( ActionEvent event ) 
+<a href='javascript:history.back();' name='P7b'>P7b</a>			public void actionPerformed( ActionEvent event ) 
 			{
 				timer.stop();			
-				cup[0].setIcon( img[ BASE ] ); 
-				cup[1].setIcon( img[ BASE ] ); 
-P71				cup[2].setIcon( img[ BASE ] ); 	
-				button[0].setEnabled( true );
-				button[1].setEnabled( true );
-				button[2].setEnabled( true );
-P7e			}
+				enableSelection();
+<a href='javascript:history.back();' name='P7e'>P7e</a>			}
 		}
 	}
 	</pre> 				<br>
 <h4>M1b과 M13 사이의 실행순서(7개) 및 실행상태</h4>
-<pre style='margin:0;padding:0;'>M12			                          new ThreeCupGamePanel();</pre><br>
-<pre style='margin:0;padding:0;'>P1b		public ThreeCupGamePanel() </pre><br>
-<pre style='margin:0;padding:0;'>P11			img[ MISS ] = new ImageIcon( new ImageIcon( PathImgFail ).getImage().getScaledInstance( 200, 250, Image.SCALE_SMOOTH ) );</pre> <br>그림번호 : <input id='blank0' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(0)'> <br> <br>
-<pre style='margin:0;padding:0;'>P12			this.add( cup[2] );</pre> <br>그림번호 : <input id='blank1' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(1)'> <br> <br>
-<pre style='margin:0;padding:0;'>P13			this.add( label );</pre> <br>그림번호 : <input id='blank2' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(2)'> <br> <br>
-<pre style='margin:0;padding:0;'>P1e		}</pre><br>
-<pre style='margin:0;padding:0;'>M11			ThreeCupGamePanel panel = </pre><br>
+<pre style='margin:0;padding:0;'><a href='#M12'>M12</a>			                          new ThreeCupGamePanel();</pre><br>
+<pre style='margin:0;padding:0;'><a href='#P1b'>P1b</a>		public ThreeCupGamePanel() </pre><br>
+<pre style='margin:0;padding:0;'><a href='#P11'>P11</a>			img[ MISS ] = new ImageIcon( new ImageIcon( PathImgFail ).getImage().getScaledInstance( 200, 250, Image.SCALE_SMOOTH ) );</pre> <br>그림번호 : <input id='blank0' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(0)'> <br> <br>
+<pre style='margin:0;padding:0;'><a href='#P12'>P12</a>			this.add( cup[2] );</pre> <br>그림번호 : <input id='blank1' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(1)'> <br> <br>
+<pre style='margin:0;padding:0;'><a href='#P13'>P13</a>			this.add( label );</pre> <br>그림번호 : <input id='blank2' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(2)'> <br> <br>
+<pre style='margin:0;padding:0;'><a href='#P1e'>P1e</a>		}</pre><br>
+<pre style='margin:0;padding:0;'><a href='#M11'>M11</a>			ThreeCupGamePanel panel = </pre><br>
 <h4>E001([구슬]컵3번(2),[참여자]컵2번(1) 선택) 이후 실행순서(9개) 및 실행상태</h4>
-<pre style='margin:0;padding:0;'>P4b		public void actionPerformed( ActionEvent event )  </pre><br>
-<pre style='margin:0;padding:0;'>P42			               this.selectCup( event );</pre><br>
-<pre style='margin:0;padding:0;'>P2b		protected int selectCup( ActionEvent event )</pre><br>
-<pre style='margin:0;padding:0;'>P2e		}</pre><br>
-<pre style='margin:0;padding:0;'>P41			this.player = </pre><br>
-<pre style='margin:0;padding:0;'>P43			showGameResult( this.player, this.ball );</pre><br>
-<pre style='margin:0;padding:0;'>P3b		protected void showGameResult( int player, int ball ) </pre><br>
-<pre style='margin:0;padding:0;'>P3e		} </pre> <br>그림번호 : <input id='blank3' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(3)'> <br> <br>
-<pre style='margin:0;padding:0;'>P4e		}	</pre> <br>그림번호 : <input id='blank4' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(4)'> <br> <br>
+<pre style='margin:0;padding:0;'><a href='#P4b'>P4b</a>		public void actionPerformed( ActionEvent event )  </pre><br>
+<pre style='margin:0;padding:0;'><a href='#P42'>P42</a>			               this.selectCup( event );</pre><br>
+<pre style='margin:0;padding:0;'><a href='#P2b'>P2b</a>		protected int selectCup( ActionEvent event )</pre><br>
+<pre style='margin:0;padding:0;'><a href='#P2e'>P2e</a>		}</pre><br>
+<pre style='margin:0;padding:0;'><a href='#P41'>P41</a>			this.player = </pre><br>
+<pre style='margin:0;padding:0;'><a href='#P43'>P43</a>			showGameResult( this.player, this.ball );</pre><br>
+<pre style='margin:0;padding:0;'><a href='#P3b'>P3b</a>		protected void showGameResult( int player, int ball ) </pre><br>
+<pre style='margin:0;padding:0;'><a href='#P3e'>P3e</a>		} </pre> <br>그림번호 : <input id='blank3' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(3)'> <br> <br>
+<pre style='margin:0;padding:0;'><a href='#P4e'>P4e</a>		}	</pre> <br>그림번호 : <input id='blank4' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(4)'> <br> <br>
 <h4>E002 잠시 대기후 실행순서(3개) 및 실행상태</h4>
-<pre style='margin:0;padding:0;'>P7b			public void actionPerformed( ActionEvent event ) </pre><br>
-<pre style='margin:0;padding:0;'>P71				cup[2].setIcon( img[ BASE ] ); 	</pre> <br>그림번호 : <input id='blank5' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(5)'> <br> <br>
-<pre style='margin:0;padding:0;'>P7e			}</pre> <br>그림번호 : <input id='blank6' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(6)'> <br> <br>
-<table border='1'><tr><td width='50' align='center'>1</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/TCG_GUI_002.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>2</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/TCG_GUI_003.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>3</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/TCG_GUI_004.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>4</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/TCG_GUI_005.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>5</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/TCG_GUI_006.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>6</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/TCG_GUI_007.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>7</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/TCG_GUI_010.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>8</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/TCG_GUI_008.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>9</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/TCG_GUI_009.jpg' /><br>&nbsp;</td></tr>
+<pre style='margin:0;padding:0;'><a href='#P7b'>P7b</a>			public void actionPerformed( ActionEvent event ) </pre><br>
+<pre style='margin:0;padding:0;'><a href='#P7e'>P7e</a>			}</pre> <br>그림번호 : <input id='blank5' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(5)'> <br> <br>
+<pre style='margin:0;padding:0;'><a href='#E003'>E003</a>		// [구슬]을 임의로 컵1번(0)에 숨겼고 [참여자]가 컵1번(0)을 선택</pre> <br>그림번호 : <input id='blank6' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(6)'> <br> <br>
+<table border='1'><tr><td width='50' align='center'>1</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/TCG_GUI_002.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>2</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/TCG_GUI_003.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>3</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/TCG_GUI_004.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>4</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/TCG_GUI_005.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>5</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/TCG_GUI_006.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>6</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/TCG_GUI_007.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>7</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/TCG_GUI_010.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>8</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/TCG_GUI_009.jpg' /><br>&nbsp;</td></tr>
 </table> 			</div> 		</div> 	</body> </html> 

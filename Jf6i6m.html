@@ -1,4 +1,4 @@
-<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script type="text/javascript" src="https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/J0606.js"></script> 		<script type="text/javascript" src="../reading/functions.js"></script> 		<link rel="stylesheet" href="../reading/layout.css"> 		<script> 			const d10 = [ ["1"], ["2"], ["3"], ["10"], 							]; 		</script> 	</head> 	<body onload='f1();' onkeydown='f4()' oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"> 			</div> 			<div id = "navigationBox"> 			</div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>리모컨으로 제어하는 로봇 청소기 프로그램의 GUI 문제입니다 이를 해결하는 다음 프로그램의 실행상태를 확인하세요 </pre> 				 	   				<h4>프로그램 코드</h4> 				<pre>				
+<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7250753558435816" crossorigin="anonymous"></script> 		<link rel="stylesheet" href="../layout.css"> 		<script type="text/javascript" src="../functions.js"></script> 		<script> 			const d10 = [ ["1"], ["2"], ["3"], ["10"], 							]; 		</script> 	</head> 	<body oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"> JAVA 프로그래밍 </div> 			<div id = "navigationBox"><ol><li><a href='../Jf1i/Jf1i1.html'>입출력/선택문</a></li><li><a href='../Jf2i/Jf2i1.html'>반복문/배열/예외</a></li><li><a href='../Jf3i/Jf3i1.html'>클래스와 객체/패키지</a></li><li><a href='../Jf4i/Jf4i1.html'>상속 및 다형성</a></li><li><a href='../Jf5i/Jf5i1.html'>GUI 기초</a></li><li><a href='../Jf6i/Jf6i1.html'>GUI 응용</a></li><ul><li><a href='../Jf6i/Jf6i1.html'>채팅</a></li><li><a href='../Jf6i/Jf6i2.html'>구슬찾기</a></li><li><a href='../Jf6i/Jf6i3.html'>가위바위보</a></li><li><a href='../Jf6i/Jf6i4.html'>리모컨-TV</a></li><li><a href='../Jf6i/Jf6i5.html'>리모컨-에어컨</a></li><li><a href='../Jf6i/Jf6i6.html'>리모컨-로봇청소기</a></li><ul><li><a href='Jf6i6.html'>코드읽기</a></li><li><a href='Jf6i6a.html'>알고리즘</a></li><li><a href='Jf6i6k.html'>키워드</a></li><li><a href='Jf6i6b.html'>빈칸채우기</a></li><li><a href='Jf6i6s.html'>실행순서</a></li><li><a href='Jf6i6m.html'>실행상태</a></li><li><a href='./../../github_sourceCode/Chapter06/RemoteControlRoboticVacuumCleanerGUI.java' target='_blank'>소스코드</a></li></ul></ul><li><a href='../Jf7i/Jf7i1.html'>제네릭/컬렉션/파일</a></li><li><a href='../Jf8i/Jf8i1.html'>스레드/네트워크(1:1)</a></li><li><a href='../Jf9i/Jf9i1.html'>네트워크(1:n)</a></li></ol></div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>리모컨으로 제어하는 로봇 청소기 프로그램의 GUI 문제입니다 이를 해결하는 다음 프로그램의 실행상태를 확인하세요 </pre> 				 	   				<h4>프로그램 코드</h4> 				<pre>				
 	import java.awt.*;
 	import javax.swing.JFrame;
 	import remoteControl.RemoteControllerPanel;
@@ -6,12 +6,12 @@
 	
 	public class RemoteControlRoboticVacuumCleanerGUI
 	{
-M1b		public static void main(String[] args) 
+<a href='javascript:history.back();' name='M1b'>M1b</a>		public static void main(String[] args) 
 		{
-M11			RoboticVacuumCleanerPanel appliance = 
-M12			                new RoboticVacuumCleanerPanel();
-M13			RemoteControllerPanel remoteController = 
-M14			                        new RemoteControllerPanel( appliance );
+<a href='javascript:history.back();' name='M11'>M11</a>			RoboticVacuumCleanerPanel appliance = 
+<a href='javascript:history.back();' name='M12'>M12</a>			                new RoboticVacuumCleanerPanel();
+<a href='javascript:history.back();' name='M13'>M13</a>			RemoteControllerPanel remoteController = 
+<a href='javascript:history.back();' name='M14'>M14</a>			                        new RemoteControllerPanel( appliance );
 	
 			JFrame frame = new JFrame( "로봇청소기" );
 			frame.setLayout( new BorderLayout() );     
@@ -22,7 +22,7 @@ M14			                        new RemoteControllerPanel( appliance );
 			frame.pack();
 			frame.setVisible( true );
 M15
-M1e		}
+<a href='javascript:history.back();' name='M1e'>M1e</a>		}
 	}
 	
 	package remoteControl;
@@ -42,13 +42,13 @@ M1e		}
 		public final static int LEFT = 3;
 		public final static int RIGHT = 4;
 	
-R1b		public RemoteControllerPanel( RemoteControl appliance )
+<a href='javascript:history.back();' name='R1b'>R1b</a>		public RemoteControllerPanel( RemoteControl appliance )
 		{
-R11			this();
+<a href='javascript:history.back();' name='R11'>R11</a>			this();
 			this.appliance = appliance;
-R1e		}
+<a href='javascript:history.back();' name='R1e'>R1e</a>		}
 	
-R2b		public RemoteControllerPanel()					  
+<a href='javascript:history.back();' name='R2b'>R2b</a>		public RemoteControllerPanel()					  
 		{
 			this.appliance = null;
 	
@@ -61,29 +61,29 @@ R2b		public RemoteControllerPanel()
 				button[i].addActionListener( this ); 
 			}
 	
-R21			this.setPreferredSize( new Dimension( 240, 120 ) );		
+<a href='javascript:history.back();' name='R21'>R21</a>			this.setPreferredSize( new Dimension( 240, 120 ) );		
 			this.setLayout( new BorderLayout() );
 			this.add( button[POWER], BorderLayout.CENTER );
 			this.add( button[UP   ], BorderLayout.NORTH );
 			this.add( button[DOWN ], BorderLayout.SOUTH );
 			this.add( button[LEFT ], BorderLayout.WEST );
 			this.add( button[RIGHT], BorderLayout.EAST );   
-R2e		} 					
+<a href='javascript:history.back();' name='R2e'>R2e</a>		} 					
 	
 		@Override
-R3b		public void actionPerformed( ActionEvent event )
+<a href='javascript:history.back();' name='R3b'>R3b</a>		public void actionPerformed( ActionEvent event )
 		{
 			if ( ( event.getSource() == button[POWER] ) && ( appliance != null ) )
-R31				appliance.clickPower();
+<a href='javascript:history.back();' name='R31'>R31</a>				appliance.clickPower();
 			else if ( ( event.getSource() == button[UP] ) && ( appliance != null ) )
-R32				appliance.clickUp();
+<a href='javascript:history.back();' name='R32'>R32</a>				appliance.clickUp();
 			else if ( ( event.getSource() == button[DOWN] ) && ( appliance != null ) )
-R33				appliance.clickDown();
+<a href='javascript:history.back();' name='R33'>R33</a>				appliance.clickDown();
 			else if ( ( event.getSource() == button[LEFT] ) && ( appliance != null ) )
-R34				appliance.clickLeft();
+<a href='javascript:history.back();' name='R34'>R34</a>				appliance.clickLeft();
 			else if ( ( event.getSource() == button[RIGHT] ) && ( appliance != null ) )
-R35				appliance.clickRight();
-R3e		}	
+<a href='javascript:history.back();' name='R35'>R35</a>				appliance.clickRight();
+<a href='javascript:history.back();' name='R3e'>R3e</a>		}	
 	}
 	package remoteControl;
 	import java.awt.*;
@@ -99,7 +99,7 @@ R3e		}
 		private boolean power;
 		private JLabel cleaningArea;
 		
-P1b		public RoboticVacuumCleanerPanel()
+<a href='javascript:history.back();' name='P1b'>P1b</a>		public RoboticVacuumCleanerPanel()
 		{
 			power = OFF;
 			robotX = robotY = 0;
@@ -109,8 +109,8 @@ P1b		public RoboticVacuumCleanerPanel()
 			cleaningArea = new JLabel( imageBackground );
 			add( cleaningArea );
 			setPreferredSize( new Dimension( WIDTH, HEIGHT ) );
-P1e		}
-P2b		public String clickPower()
+<a href='javascript:history.back();' name='P1e'>P1e</a>		}
+<a href='javascript:history.back();' name='P2b'>P2b</a>		public String clickPower()
 		{
 			if( power == OFF )
 			{
@@ -124,33 +124,33 @@ P2b		public String clickPower()
 				power = OFF;
 				return "전원을 끕니다";
 			}
-P2e		}
+<a href='javascript:history.back();' name='P2e'>P2e</a>		}
 		
-P3b		public String clickUp()
+<a href='javascript:history.back();' name='P3b'>P3b</a>		public String clickUp()
 		{
-P31			move( 0, -10, power );	
+<a href='javascript:history.back();' name='P31'>P31</a>			move( 0, -10, power );	
 			return "직진합니다";
-P3e		}
+<a href='javascript:history.back();' name='P3e'>P3e</a>		}
 		
-P4b		public String clickDown()
+<a href='javascript:history.back();' name='P4b'>P4b</a>		public String clickDown()
 		{
-P41			move( 0, 10, power );	
+<a href='javascript:history.back();' name='P41'>P41</a>			move( 0, 10, power );	
 			return "후진합니다";
-P4e		}
+<a href='javascript:history.back();' name='P4e'>P4e</a>		}
 		
-P5b		public String clickLeft()
+<a href='javascript:history.back();' name='P5b'>P5b</a>		public String clickLeft()
 		{
-P51			move( -10, 0, power );	
+<a href='javascript:history.back();' name='P51'>P51</a>			move( -10, 0, power );	
 			return "좌회전합니다";
-P5e		}
+<a href='javascript:history.back();' name='P5e'>P5e</a>		}
 		
-P6b		public String clickRight()
+<a href='javascript:history.back();' name='P6b'>P6b</a>		public String clickRight()
 		{
-P61			move( 10, 0, power );	
+<a href='javascript:history.back();' name='P61'>P61</a>			move( 10, 0, power );	
 			return "우회전합니다";
-P6e		}
+<a href='javascript:history.back();' name='P6e'>P6e</a>		}
 	
-P7b		public void move( int x, int y, boolean power )
+<a href='javascript:history.back();' name='P7b'>P7b</a>		public void move( int x, int y, boolean power )
 		{
 			if ( power == RemoteControl.OFF )
 				return;
@@ -168,14 +168,14 @@ P7b		public void move( int x, int y, boolean power )
 			else if ( robotY >= ( HEIGHT - IMAGE_SIZE ) )
 				robotY = ( HEIGHT - IMAGE_SIZE );
 	   
-P71			repaint();
-P7e		}
+<a href='javascript:history.back();' name='P71'>P71</a>			repaint();
+<a href='javascript:history.back();' name='P7e'>P7e</a>		}
 	
-P8b		public void paintComponent( Graphics page )
+<a href='javascript:history.back();' name='P8b'>P8b</a>		public void paintComponent( Graphics page )
 		{
 			super.paintComponent( page );
 			imgRobot.paintIcon( this, page, robotX, robotY );
-P8e		}
+<a href='javascript:history.back();' name='P8e'>P8e</a>		}
 	}
 	package remoteControl;
 	
@@ -190,29 +190,28 @@ P8e		}
 		public String clickRight();
 	}
 	</pre> 				<br>
-<h4>M1b M12과 M13 사이의 실행순서(11개) 및 실행상태</h4>
-<pre style='margin:0;padding:0;'>P1b		public RoboticVacuumCleanerPanel()</pre><br>
-<pre style='margin:0;padding:0;'>P1e		}</pre> <br>그림번호 : <input id='blank0' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(0)'> <br> <br>
-<pre style='margin:0;padding:0;'>M11			RoboticVacuumCleanerPanel appliance = </pre><br>
-<pre style='margin:0;padding:0;'>M14			                        new RemoteControllerPanel( appliance );</pre><br>
-<pre style='margin:0;padding:0;'>R1b		public RemoteControllerPanel( RemoteControl appliance )</pre><br>
-<pre style='margin:0;padding:0;'>R11			this();</pre><br>
-<pre style='margin:0;padding:0;'>R2b		public RemoteControllerPanel()					  </pre><br>
-<pre style='margin:0;padding:0;'>R21			this.setPreferredSize( new Dimension( 240, 120 ) );		</pre> <br>그림번호 : <input id='blank1' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(1)'> <br> <br>
-<pre style='margin:0;padding:0;'>R2e		} 					</pre> <br>그림번호 : <input id='blank2' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(2)'> <br> <br>
-<pre style='margin:0;padding:0;'>R1e		}</pre><br>
-<pre style='margin:0;padding:0;'>M13			RemoteControllerPanel remoteController = </pre><br>
+<h4>M1b M12과 M13 사이의 실행순서(10개) 및 실행상태</h4>
+<pre style='margin:0;padding:0;'><a href='#P1b'>P1b</a>		public RoboticVacuumCleanerPanel()</pre><br>
+<pre style='margin:0;padding:0;'><a href='#P1e'>P1e</a>		}</pre> <br>그림번호 : <input id='blank0' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(0)'> <br> <br>
+<pre style='margin:0;padding:0;'><a href='#M11'>M11</a>			RoboticVacuumCleanerPanel appliance = </pre><br>
+<pre style='margin:0;padding:0;'><a href='#M14'>M14</a>			                        new RemoteControllerPanel( appliance );</pre><br>
+<pre style='margin:0;padding:0;'><a href='#R1b'>R1b</a>		public RemoteControllerPanel( RemoteControl appliance )</pre><br>
+<pre style='margin:0;padding:0;'><a href='#R11'>R11</a>			this();</pre><br>
+<pre style='margin:0;padding:0;'><a href='#R2b'>R2b</a>		public RemoteControllerPanel()					  </pre><br>
+<pre style='margin:0;padding:0;'><a href='#R21'>R21</a>			this.setPreferredSize( new Dimension( 240, 120 ) );		</pre> <br>그림번호 : <input id='blank1' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(1)'> <br> <br>
+<pre style='margin:0;padding:0;'><a href='#R2e'>R2e</a>		} 					</pre> <br>그림번호 : <input id='blank2' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(2)'> <br> <br>
+<pre style='margin:0;padding:0;'><a href='#R1e'>R1e</a>		}</pre><br>
 <h4>E003(RIGHT를 선택) 이후 실행순서(11개) 및 실행상태</h4>
-<pre style='margin:0;padding:0;'>R3b		public void actionPerformed( ActionEvent event )</pre><br>
-<pre style='margin:0;padding:0;'>R35				appliance.clickRight();</pre><br>
-<pre style='margin:0;padding:0;'>P6b		public String clickRight()</pre><br>
-<pre style='margin:0;padding:0;'>P61			move( 10, 0, power );	</pre><br>
-<pre style='margin:0;padding:0;'>P7b		public void move( int x, int y, boolean power )</pre><br>
-<pre style='margin:0;padding:0;'>P71			repaint();</pre><br>
-<pre style='margin:0;padding:0;'>P8b		public void paintComponent( Graphics page )</pre><br>
-<pre style='margin:0;padding:0;'>P8e		}</pre> <br>그림번호 : <input id='blank3' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(3)'> <br> <br>
-<pre style='margin:0;padding:0;'>P7e		}</pre><br>
-<pre style='margin:0;padding:0;'>P6e		}</pre><br>
-<pre style='margin:0;padding:0;'>R3e		}	</pre><br>
+<pre style='margin:0;padding:0;'><a href='#R3b'>R3b</a>		public void actionPerformed( ActionEvent event )</pre><br>
+<pre style='margin:0;padding:0;'><a href='#R35'>R35</a>				appliance.clickRight();</pre><br>
+<pre style='margin:0;padding:0;'><a href='#P6b'>P6b</a>		public String clickRight()</pre><br>
+<pre style='margin:0;padding:0;'><a href='#P61'>P61</a>			move( 10, 0, power );	</pre><br>
+<pre style='margin:0;padding:0;'><a href='#P7b'>P7b</a>		public void move( int x, int y, boolean power )</pre><br>
+<pre style='margin:0;padding:0;'><a href='#P71'>P71</a>			repaint();</pre><br>
+<pre style='margin:0;padding:0;'><a href='#P8b'>P8b</a>		public void paintComponent( Graphics page )</pre><br>
+<pre style='margin:0;padding:0;'><a href='#P8e'>P8e</a>		}</pre> <br>그림번호 : <input id='blank3' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(3)'> <br> <br>
+<pre style='margin:0;padding:0;'><a href='#P7e'>P7e</a>		}</pre><br>
+<pre style='margin:0;padding:0;'><a href='#P6e'>P6e</a>		}</pre><br>
+<pre style='margin:0;padding:0;'><a href='#R3e'>R3e</a>		}	</pre><br>
 <table border='1'><tr><td width='50' align='center'>1</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_0012.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>2</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_TV_0013.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>3</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_TV_0014.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>4</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_001.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>5</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_002.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>6</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_003.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>7</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_004.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>8</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_005.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>9</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_006.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>10</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_007.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>11</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_008.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>12</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_009.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>13</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_010.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>14</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_011.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>15</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_012.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>16</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_013.jpg' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>17</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/RC_GUI_Cleaner_014.jpg' /><br>&nbsp;</td></tr>
 </table> 			</div> 		</div> 	</body> </html> 
